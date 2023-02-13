@@ -1,0 +1,51 @@
+
+.storybook-tag {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  
+  padding: 2px 8px ;
+  border-radius: 12px;
+
+  text-transform: capitalize;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.storybook-tag--grass{
+  background-color: #74cb48;
+}
+
+.storybook-tag--ghost{
+  background-color: #70559b;
+}
+
+.storybook-tag--ground{
+  background-color: #dec16b;
+}
+
+.storybook-tag--electric{
+  background-color: #f9cf30;
+}
+
+.storybook-tag--rock{
+  background-color: #b69e31;
+}
+
+.storybook-tag--dark{
+  background-color: #75574c;
+}
+
+.storybook-tag--fire{
+  background-color: #f57d31;
+}
+
+.storybook-tag--fairy{
+  background-color: #e69eac;
+}
+
+.storybook-tag--psychic{
+  background-color: #fb5584;
+}
+
+
