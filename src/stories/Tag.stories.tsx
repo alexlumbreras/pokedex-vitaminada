@@ -4,9 +4,6 @@ import { Tag } from "./Tag";
 export default {
 	title: "Pokédex/Components/Tag",
 	component: Tag,
-	argTypes: {
-		backgroundColor: { control: "color" },
-	},
 } as ComponentMeta<typeof Tag>;
 
 const Template: ComponentStory<typeof Tag> = (args) => <Tag {...args} />;

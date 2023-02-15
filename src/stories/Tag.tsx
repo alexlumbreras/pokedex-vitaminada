@@ -1,8 +1,7 @@
 import "./Tag.css";
 
 interface TagProps {
-	backgroundColor: string;
-	type?:
+	type:
 		| "grass"
 		| "ghost"
 		| "ground"
@@ -15,14 +14,6 @@ interface TagProps {
 	label: string;
 }
 
-export const Tag = ({ backgroundColor, type, label, ...props }: TagProps) => {
-	return (
-		<span
-			className={["storybook-tag", `storybook-tag--${type}`].join(" ")}
-			style={{ backgroundColor }}
-			{...props}
-		>
-			{label}
-		</span>
-	);
+export const Tag = ({ type, label }: TagProps) => {
+	return <span className={`tag ${type}-background`}>{label}</span>;
 };
