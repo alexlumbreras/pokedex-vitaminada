@@ -1,10 +1,10 @@
-import "./App.css";
+import { Tag } from "./components/Tag/Tag";
 
 function App() {
 	return (
-		<div className="App">
-			<h1>Pokédex Vitaminada 🔥</h1>
-		</div>
+		<>
+			<Tag label="grass" type="grass" />
+		</>
 	);
 }
 
