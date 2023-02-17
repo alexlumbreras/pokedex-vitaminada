@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Tag } from "../components/Tag";
+import { Tag } from "@/components/Tag";
 
 export default {
 	title: "Pokédex/Components/Tag",

@@ -1,20 +1,15 @@
 {
 	"name": "pokedex-vitaminada",
 	"private": true,
-	"version": "0.0.0",
+	"version": "0.3.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc && vite build",
 		"preview": "vite preview",
-		"storybook": "start-storybook -p 6006",
-		"build-storybook": "build-storybook",
+		"storybook": "start-storybook",
 		"test": "jest",
 		"coverage": "jest --coverage"
-	},
-	"dependencies": {
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
 	},
 	"engines": {
 		"node": ">=16.0.0 <17.0.0"
@@ -43,5 +38,9 @@
 		"ts-jest": "^29.0.5",
 		"typescript": "^4.9.3",
 		"vite": "^4.1.0"
+	},
+	"dependencies": {
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
 	}
 }
