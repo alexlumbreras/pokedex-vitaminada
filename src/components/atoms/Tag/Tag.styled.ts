@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PokemonType } from "../Tag";
+import { PokemonType } from ".";
 
 const typeColors = {
 	grass: "#74cb48",
@@ -14,14 +14,13 @@ const typeColors = {
 };
 
 export const StyledTag = styled.span<{ type: PokemonType }>`
-	border-radius: 12px;
+	border-radius: 1.2rem;
 	padding: 2px 8px;
 
 	background-color: ${({ type }) => typeColors[type]};
 
-	font-size: 12px;
-	line-height: 16px;
-	font-family: "Poppins", sans-serif;
+	font-size: 1.2rem;
+	line-height: 1.6rem;
 	font-weight: 700;
 	text-transform: capitalize;
 	color: #ffffff;
