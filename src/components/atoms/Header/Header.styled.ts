@@ -5,7 +5,8 @@ export const StyledHeader = styled.header`
 	width: 100%;
 
 	box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.25);
-	background-color: #ffffff;
+	background-color: ${({ theme }) => theme.grayScaleA};
+	color: ${({ theme }) => theme.grayScaleD};
 
 	section {
 		display: flex;

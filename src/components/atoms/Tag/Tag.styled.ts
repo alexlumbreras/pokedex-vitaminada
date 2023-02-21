@@ -23,5 +23,5 @@ export const StyledTag = styled.span<{ type: PokemonType }>`
 	line-height: 1.6rem;
 	font-weight: 700;
 	text-transform: capitalize;
-	color: #ffffff;
+	color: ${({ theme }) => theme.grayScaleA};
 `;

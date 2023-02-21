@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
+import { Theme } from "./ThemeProvider";
 
-export const GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
 
   //reset.css properties
 
@@ -60,7 +61,7 @@ export const GlobalStyles = createGlobalStyle`
   html,
   body {
     color: #212121;
-    background-color: #e0e0e0;
+    background-color:${({ theme }) => theme.grayScaleB};
 
     min-height: 100%;
 
