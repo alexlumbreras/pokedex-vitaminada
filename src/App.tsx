@@ -6,7 +6,7 @@ function App() {
 	return (
 		<ThemeProvider>
 			<Header />
-			<Tag label="grass" type="grass" />
+			<Tag label="electric" type="electric" />
 		</ThemeProvider>
 	);
 }

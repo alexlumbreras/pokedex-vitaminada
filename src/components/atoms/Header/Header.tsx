@@ -1,4 +1,4 @@
-import { Theme } from "@/theme/ThemeProvider";
+import { Theme } from "@/theme/theme";
 import { useTheme } from "styled-components";
 import { Logo } from "../Logo";
 import { StyledHeader } from "./Header.styled";
@@ -8,7 +8,7 @@ export const Header = () => {
 	return (
 		<StyledHeader>
 			<section>
-				<Logo fill={theme.grayScaleD} />
+				<Logo fill={theme.colors.baseColors.grayScaleA} />
 				Pokédex
 			</section>
 		</StyledHeader>

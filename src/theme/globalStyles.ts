@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { Theme } from "./ThemeProvider";
+import { Theme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
 
@@ -49,7 +49,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
     border-spacing: 0;
   }
 
-  //reset.css properties
+  //index.css properties
 
   *,
   :before,
@@ -60,12 +60,12 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
 
   html,
   body {
-    color: #212121;
-    background-color:${({ theme }) => theme.grayScaleB};
+    color: ${({ theme }) => theme.colors.baseColors.grayScaleA};
+    background-color:${({ theme }) => theme.colors.baseColors.grayScaleC};
 
     min-height: 100%;
 
-    font-family: "Poppins", sans-serif;
+    font-family: ${({ theme }) => theme.fonts.fontFamily};
 
     font-size: 62.5%;
   }
@@ -80,13 +80,13 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
   p,
   strong,
   input {
-    font-size: 1.6rem;
-    line-height: 2.4rem;
+    font-size: ${({ theme }) => theme.fonts.body.textSize.m};
+    line-height: ${({ theme }) => theme.fonts.body.textHeight.m} ;
     margin: 0;
   }
 
   input {
-    font-family: "Poppins", sans-serif;
+    font-family:${({ theme }) => theme.fonts.fontFamily};
     outline: none;
   }
 `;
