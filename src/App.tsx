@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@/theme/ThemeProvider";
 import { Tag } from "@/components/atoms/Tag";
-import { Header } from "@/components/atoms/Header";
+import { Header } from "@/components/molecules/Header";
 
 function App() {
 	return (

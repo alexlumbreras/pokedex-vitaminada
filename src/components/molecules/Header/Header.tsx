@@ -1,6 +1,6 @@
 import { Theme } from "@/theme/theme";
 import { useTheme } from "styled-components";
-import { Logo } from "../Logo";
+import { Logo } from "../../atoms/Logo";
 import { StyledHeader } from "./Header.styled";
 
 export const Header = () => {
