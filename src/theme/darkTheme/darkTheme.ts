@@ -43,7 +43,7 @@ export const darkTheme: Theme = {
 		heading: {
 			textSize: {
 				s: "1.8rem",
-				m: "1.6rem",
+				m: "2.4rem",
 				l: "3.2rem",
 			},
 

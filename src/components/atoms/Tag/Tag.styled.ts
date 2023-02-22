@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { PokemonType } from ".";
 
-export const StyledTag = styled.span<{ type: PokemonType }>`
+export const StyledTag = styled.span<{ type: string }>`
 	border-radius: 1.2rem;
 	padding: 2px 8px;
 

@@ -1,12 +1,13 @@
 import { ThemeProvider } from "@/theme/ThemeProvider";
-import { Tag } from "@/components/atoms/Tag";
 import { Header } from "@/components/molecules/Header";
+import { Card } from "./components/molecules/Card/Card";
+import { Pokemon } from "./components/molecules/Card/Pokemon";
 
 function App() {
 	return (
 		<ThemeProvider>
 			<Header />
-			<Tag label="electric" type="electric" />
+			<Card {...Pokemon} />
 		</ThemeProvider>
 	);
 }
