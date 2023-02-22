@@ -1,14 +1,12 @@
-import { Theme } from "@/theme/theme";
-import { useTheme } from "styled-components";
-import { Logo } from "../../atoms/Logo";
 import { StyledHeader } from "./Header.styled";
+import { StyledSVG } from "../../atoms/Icon";
+import PokeballLogo from "../../../assets/svgs/pokeball-logo.svg";
 
 export const Header = () => {
-	const theme = useTheme() as Theme;
 	return (
 		<StyledHeader>
 			<section>
-				<Logo fill={theme.colors.baseColors.grayScaleA} />
+				<StyledSVG src={PokeballLogo} />
 				Pokédex
 			</section>
 		</StyledHeader>
