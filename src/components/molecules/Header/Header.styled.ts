@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-	padding: 2.4rem;
+	padding: ${({ theme }) => theme.spaces.l};
 	width: 100%;
 
 	box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.25);
@@ -12,12 +12,12 @@ export const StyledHeader = styled.header`
 		display: flex;
 		align-items: center;
 
-		gap: 1.6rem;
+		gap: ${({ theme }) => theme.spaces.m};
 
 		margin: auto;
 	}
 
-	font-size: 2.4rem;
-	line-height: 3.2rem;
-	font-weight: 700;
+	font-size: ${({ theme }) => theme.fonts.heading.textSize.m};
+	line-height: ${({ theme }) => theme.fonts.heading.textSize.l};
+	font-weight: ${({ theme }) => theme.fonts.fontWeight.bold};
 `;

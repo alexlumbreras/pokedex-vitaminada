@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
-import { Tag } from "../src/components/atoms/Tag/Tag";
-import { render } from "./test-utils";
+import { Tag } from "../../src/components/atoms/Tag/Tag";
+import { render } from "../custom-render";
 
 describe("Tag component", () => {
 	it("Shows a grass type tag", () => {
@@ -11,5 +11,3 @@ describe("Tag component", () => {
 		expect(type).toBeInTheDocument();
 	});
 });
-
-//custom render!!!!

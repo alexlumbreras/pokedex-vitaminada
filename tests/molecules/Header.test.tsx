@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
-import { Header } from "../src/components/molecules/Header/Header";
-import { render } from "./test-utils";
+import { Header } from "../../src/components/molecules/Header/Header";
+import { render } from "../custom-render";
 
 export {};
 
