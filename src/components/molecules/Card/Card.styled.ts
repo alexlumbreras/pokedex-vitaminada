@@ -11,7 +11,7 @@ export const StyledCard = styled.div`
 	padding: ${({ theme }) => theme.spaces.xxs};
 	border-radius: ${({ theme }) => theme.spaces.s};
 	box-shadow: "0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.25)";
-	background-color: ${({ theme }) => theme.colors.typeColors.grass};
+	background-color: ${({ theme }) => theme.colors.grass};
 
 	.header {
 		display: flex;
@@ -26,20 +26,20 @@ export const StyledCard = styled.div`
 		font-size: ${({ theme }) => theme.fonts.heading.textSize.m};
 		line-height: ${({ theme }) => theme.fonts.heading.textHeight.m};
 
-		color: ${({ theme }) => theme.colors.baseColors.grayScaleE};
+		color: ${({ theme }) => theme.themeColors.mainColor};
 		font-weight: ${({ theme }) => theme.fonts.fontWeight.bold};
 	}
 
 	.index {
 		font-size: ${({ theme }) => theme.fonts.body.textSize.xs};
 		line-height: ${({ theme }) => theme.fonts.body.textHeight.xs};
-		color: ${({ theme }) => theme.colors.baseColors.grayScaleE};
+		color: ${({ theme }) => theme.themeColors.mainColor};
 		font-weight: ${({ theme }) => theme.fonts.fontWeight.bold};
 	}
 
 	.content {
 		padding: ${({ theme }) => theme.spaces.s} ${({ theme }) => theme.spaces.s};
-		background-color: ${({ theme }) => theme.colors.baseColors.grayScaleE};
+		background-color: ${({ theme }) => theme.themeColors.mainColor};
 		border-radius: ${({ theme }) => theme.spaces.xs};
 	}
 
@@ -73,7 +73,7 @@ export const StyledCard = styled.div`
 	}
 
 	.measure:not(:last-child) {
-		border-right: 1px solid ${({ theme }) => theme.colors.baseColors.grayScaleB};
+		border-right: 1px solid ${({ theme }) => theme.themeColors.textColor};
 	}
 
 	.measure-data {
@@ -86,7 +86,7 @@ export const StyledCard = styled.div`
 		line-height: ${({ theme }) => theme.fonts.body.textHeight.xs};
 
 		margin-top: ${({ theme }) => theme.spaces.xs};
-		color: ${({ theme }) => theme.colors.baseColors.grayScaleB};
+		color: ${({ theme }) => theme.themeColors.textColor};
 	}
 
 	.description {

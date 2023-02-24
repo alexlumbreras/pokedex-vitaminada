@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-export const reset = css`
+export const resetStyles = css`
 	//reset.css properties
 
 	html,

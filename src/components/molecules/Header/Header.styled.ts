@@ -5,17 +5,12 @@ export const StyledHeader = styled.header`
 	width: 100%;
 
 	box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.25);
-	background-color: ${({ theme }) => theme.colors.baseColors.grayScaleE};
-	color: ${({ theme }) => theme.colors.baseColors.grayScaleA};
+	background-color: ${({ theme }) => theme.themeColors.mainColor};
 
-	section {
-		display: flex;
-		align-items: center;
+	display: flex;
+	align-items: center;
 
-		gap: ${({ theme }) => theme.spaces.m};
-
-		margin: auto;
-	}
+	gap: ${({ theme }) => theme.spaces.m};
 
 	font-size: ${({ theme }) => theme.fonts.heading.textSize.m};
 	line-height: ${({ theme }) => theme.fonts.heading.textSize.l};

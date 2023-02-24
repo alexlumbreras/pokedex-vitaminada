@@ -1,13 +1,13 @@
 import { ThemeProvider } from "@/theme/ThemeProvider";
 import { Header } from "@/components/molecules/Header";
-import { Card } from "./components/molecules/Card/Card";
-import { Pokemon } from "./components/molecules/Card/Pokemon";
+import { Card } from "./components/molecules/Card";
+import pokemon from "@/components/molecules/Card/pokemon.json";
 
 function App() {
 	return (
 		<ThemeProvider>
 			<Header />
-			<Card {...Pokemon} />
+			<Card {...pokemon} />
 		</ThemeProvider>
 	);
 }

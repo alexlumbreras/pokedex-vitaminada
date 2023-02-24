@@ -1,11 +1,8 @@
-import { StyledSVG } from "../../atoms/Icon";
 import { StyledCard } from "./Card.styled";
-import weightLogo from "../../../assets/svgs/weight-logo.svg";
-import heightLogo from "../../../assets/svgs/height-logo.svg";
 import { Tag } from "../../atoms/Tag";
-import { PokemonProps } from "./Pokemon";
+import { Pokemon } from "../../../core/domain/Pokemon.model";
 
-export const Card = (pokemon: PokemonProps) => {
+export const Card = (pokemon: Pokemon) => {
 	return (
 		<StyledCard>
 			<div className="header">
@@ -23,7 +20,6 @@ export const Card = (pokemon: PokemonProps) => {
 					<div className="measures">
 						<div className="measure">
 							<div className="measure-data">
-								<StyledSVG src={weightLogo} />
 								<p>{pokemon.weight} kg</p>
 							</div>
 							<p className="measure-name">Weight</p>
@@ -31,7 +27,6 @@ export const Card = (pokemon: PokemonProps) => {
 
 						<div className="measure">
 							<div className="measure-data">
-								<StyledSVG src={heightLogo} />
 								<p>{pokemon.height} m</p>
 							</div>
 							<p className="measure-name">Height</p>

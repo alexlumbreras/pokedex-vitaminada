@@ -1,33 +1,29 @@
 export interface Theme {
 	colors: {
-		baseColors: {
-			grayScaleA: string;
-			grayScaleB: string;
-			grayScaleC: string;
-			grayScaleD: string;
-			grayScaleE: string;
-		};
+		grayScaleA: string;
+		grayScaleB: string;
+		grayScaleC: string;
+		grayScaleD: string;
+		grayScaleE: string;
 
-		typeColors: {
-			normal: string;
-			ground: string;
-			electric: string;
-			rock: string;
-			dark: string;
-			fire: string;
-			fairy: string;
-			psychic: string;
-			fighting: string;
-			poison: string;
-			dragon: string;
-			ghost: string;
-			flying: string;
-			water: string;
-			steel: string;
-			ice: string;
-			grass: string;
-			bug: string;
-		};
+		normal: string;
+		ground: string;
+		electric: string;
+		rock: string;
+		dark: string;
+		fire: string;
+		fairy: string;
+		psychic: string;
+		fighting: string;
+		poison: string;
+		dragon: string;
+		ghost: string;
+		flying: string;
+		water: string;
+		steel: string;
+		ice: string;
+		grass: string;
+		bug: string;
 	};
 
 	fonts: {
@@ -68,6 +64,7 @@ export interface Theme {
 			};
 		};
 	};
+
 	spaces: {
 		xxs: string;
 		xs: string;
@@ -76,5 +73,11 @@ export interface Theme {
 		l: string;
 		xl: string;
 		xxl: string;
+	};
+
+	themeColors: {
+		mainColor: string;
+		secondaryColor: string;
+		textColor: string;
 	};
 }

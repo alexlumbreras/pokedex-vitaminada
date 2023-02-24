@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { Header } from "../../src/components/molecules/Header/Header";
+import { Header } from "../../src/components/molecules/Header";
 import { render } from "../custom-render";
 
 export {};
@@ -9,7 +9,6 @@ describe("Header component", () => {
 		render(<Header />);
 
 		const title = screen.getByText(new RegExp("Pokédex", "i"));
-		console.log(title);
 
 		expect(title).toBeInTheDocument();
 	});

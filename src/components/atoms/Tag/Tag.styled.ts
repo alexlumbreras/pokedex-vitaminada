@@ -6,11 +6,11 @@ export const StyledTag = styled.span<{ type: string }>`
 
 	background-color: ${({ type }) =>
 		({ theme }) =>
-			theme.colors.typeColors[type]};
+			theme.colors[type]};
 
 	font-size: 1.2rem;
 	line-height: 1.6rem;
 	font-weight: 700;
 	text-transform: capitalize;
-	color: ${({ theme }) => theme.colors.baseColors.grayScaleE};
+	color: ${({ theme }) => theme.themeColors.mainColor};
 `;
