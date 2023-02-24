@@ -1,10 +1,14 @@
-import { Tag } from "@/components/Tag";
+import { ThemeProvider } from "@/theme/ThemeProvider";
+import { Header } from "@/components/molecules/Header";
+import { Card } from "./components/molecules/Card";
+import pokemon from "@/components/molecules/Card/pokemon.json";
 
 function App() {
 	return (
-		<>
-			<Tag label="grass" type="grass" />
-		</>
+		<ThemeProvider>
+			<Header />
+			<Card {...pokemon} />
+		</ThemeProvider>
 	);
 }
 

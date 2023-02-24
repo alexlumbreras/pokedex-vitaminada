@@ -1,5 +1,6 @@
-import { screen, render } from "@testing-library/react";
-import { Tag } from "..";
+import { screen } from "@testing-library/react";
+import { Tag } from "../../src/components/atoms/Tag";
+import { render } from "../custom-render";
 
 describe("Tag component", () => {
 	it("Shows a grass type tag", () => {

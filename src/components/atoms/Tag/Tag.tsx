@@ -1,18 +1,7 @@
 import { StyledTag } from "./Tag.styled";
 
-export type PokemonType =
-	| "grass"
-	| "ghost"
-	| "ground"
-	| "electric"
-	| "rock"
-	| "dark"
-	| "fire"
-	| "fairy"
-	| "psychic";
-
 interface TagProps {
-	type: PokemonType;
+	type: string;
 	label: string;
 }
 
