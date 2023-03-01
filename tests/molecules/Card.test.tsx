@@ -1,52 +1,26 @@
 import { Card } from "@/components/molecules/Card";
 import { pokemonObjectMother } from "../PokemonObjectMother";
-import { render } from "../custom-render";
-import { screen } from "@testing-library/react";
-import { Pokemon } from "@/core/domain/Pokemon.model";
+import { screen, render } from "../custom-render";
 
-export {};
 describe("Card component", () => {
-	const randomizer = pokemonObjectMother.create();
-
-	const carData: Pokemon = {
-		name: randomizer.name,
-		index: randomizer.index,
-		imageUrl: randomizer.imageUrl,
-		types: {
-			firstType: randomizer.types.firstType,
-			secondType: randomizer.types.secondType,
-		},
-		weight: randomizer.weight,
-		height: randomizer.height,
-		description: randomizer.description,
-	};
+	const cardData = pokemonObjectMother.create();
 
 	it("Shows a Pokemon card with all its attributes", () => {
-		render(<Card pokemon={randomizer} />);
+		render(<Card pokemon={cardData} />);
 
-		const pokemonName = screen.getByText(new RegExp(`${carData.name}`, "i"));
-		const pokemonIndex = screen.getByText(new RegExp(`#${carData.index}`, "i"));
+		const pokemonName = screen.getByText(cardData.name);
+		const pokemonIndex = screen.getByText(`#${cardData.index}`);
 		const pokemonImage = screen.getByRole("img");
-		const pokemonFirstType = screen.getByText(
-			new RegExp(`${carData.types.firstType}`, "i")
-		);
-		const pokemonSecondType = screen.getByText(
-			new RegExp(`${carData.types.secondType}`, "i")
-		);
-		const pokemonWeight = screen.getByText(
-			new RegExp(`${carData.weight} kg`, "i")
-		);
-		const pokemonHeight = screen.getByText(
-			new RegExp(`${carData.height} m`, "i")
-		);
-		const pokemonDescription = screen.getByText(
-			new RegExp(`${carData.description}`, "i")
-		);
+		const pokemonFirstType = screen.getByText(cardData.types.firstType);
+		const pokemonSecondType = screen.getByText(cardData.types.secondType);
+		const pokemonWeight = screen.getByText(`${cardData.weight} kg`);
+		const pokemonHeight = screen.getByText(`${cardData.height} m`);
+		const pokemonDescription = screen.getByText(cardData.description);
 
 		expect(pokemonName).toBeInTheDocument();
 		expect(pokemonIndex).toBeInTheDocument();
 		expect(pokemonImage).toBeInTheDocument();
-		expect(pokemonImage).toHaveAttribute("src", `${carData.imageUrl}`);
+		expect(pokemonImage).toHaveAttribute("src", cardData.imageUrl);
 		expect(pokemonFirstType).toBeInTheDocument();
 		expect(pokemonSecondType).toBeInTheDocument();
 		expect(pokemonWeight).toBeInTheDocument();

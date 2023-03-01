@@ -1,16 +1,20 @@
 import App from "@/App";
-import { bulbasaur } from "@/core/infrastructure/bulbasaur";
-import { render } from "../custom-render";
+import { pokemonObjectMother } from "../PokemonObjectMother";
+import { render, screen } from "../custom-render";
+import { pokemonService } from "@/core/service/pokemon.service";
 
-export {};
+const pokemon = pokemonObjectMother.create();
+
 describe("App", () => {
-	it("", async () => {
-		global.fetch = jest.fn(() =>
-			Promise.resolve({
-				json: () => Promise.resolve(bulbasaur),
-			})
-		) as jest.Mock;
+	it("renders component", async () => {
+		jest.spyOn(pokemonService, "getPokemon").mockResolvedValue(pokemon);
 
 		render(<App />);
+
+		const pokemonName = await screen.findByText(
+			new RegExp(`${pokemon.name}`, "i")
+		);
+
+		expect(pokemonName).toBeInTheDocument();
 	});
 });

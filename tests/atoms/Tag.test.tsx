@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { Tag } from "../../src/components/atoms/Tag";
+import { Tag } from "@/components/atoms/Tag";
 import { render } from "../custom-render";
 
 describe("Tag component", () => {

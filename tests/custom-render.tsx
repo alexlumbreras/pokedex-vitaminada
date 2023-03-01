@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { render, RenderOptions } from "@testing-library/react";
+import { render, RenderOptions, act, screen } from "@testing-library/react";
 import { ThemeProvider } from "../src/theme/ThemeProvider";
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
