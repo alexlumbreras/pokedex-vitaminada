@@ -1,12 +1,12 @@
 export interface Pokemon {
 	name: string;
-	index: string;
+	index: number;
 	imageUrl: string;
 	types: {
 		firstType: string;
 		secondType: string;
 	};
-	weight: string;
-	height: string;
+	weight: number;
+	height: number;
 	description: string;
 }

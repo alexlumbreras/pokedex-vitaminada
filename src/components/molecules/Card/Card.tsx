@@ -1,8 +1,8 @@
 import { StyledCard } from "./Card.styled";
-import { Tag } from "../../atoms/Tag";
-import { Pokemon } from "../../../core/domain/Pokemon.model";
+import { Tag } from "@/components/atoms/Tag";
+import { Pokemon } from "@/core/domain/Pokemon.model";
 
-export const Card = (pokemon: Pokemon) => {
+export const Card = ({ pokemon }: { pokemon: Pokemon }) => {
 	return (
 		<StyledCard>
 			<div className="header">
