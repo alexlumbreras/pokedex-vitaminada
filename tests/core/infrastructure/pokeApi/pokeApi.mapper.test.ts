@@ -2,7 +2,7 @@ import { Pokemon } from "@/core/domain/Pokemon.model";
 import { bulbasaurRawData } from "@/core/infrastructure/bulbasaurData";
 import { pokeApiMapper } from "@/core/infrastructure/PokeApi.mapper";
 
-describe("Fetching PokeApi ", () => {
+describe("Pokemon mapper", () => {
 	const Bulbasaur: Pokemon = {
 		name: "bulbasaur",
 		index: 1,
@@ -18,7 +18,7 @@ describe("Fetching PokeApi ", () => {
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, sapien quis rhoncus commodo, ex ante euismod augue, a sollicitudin.",
 	};
 
-	it.only("Fetching a certain pokemon (bulbasaur)", () => {
+	it.only("Mapping a certain pokemon to domain model", () => {
 		jest.spyOn(pokeApiMapper, "mapData").mockReturnValue(Bulbasaur);
 
 		pokeApiMapper.mapData(bulbasaurRawData);
