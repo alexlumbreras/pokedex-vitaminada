@@ -1,6 +1,6 @@
 import { Card } from "@/components/molecules/Card";
-import { pokemonObjectMother } from "../PokemonObjectMother";
-import { screen, render } from "../custom-render";
+import { pokemonObjectMother } from "tests/PokemonObjectMother";
+import { screen, render } from "tests/custom-render";
 
 describe("Card component", () => {
 	const cardData = pokemonObjectMother.create();
@@ -13,8 +13,12 @@ describe("Card component", () => {
 		const pokemonImage = screen.getByRole("img");
 		const pokemonFirstType = screen.getByText(cardData.types.firstType);
 		const pokemonSecondType = screen.getByText(cardData.types.secondType);
-		const pokemonWeight = screen.getByText(`${cardData.weight} kg`);
-		const pokemonHeight = screen.getByText(`${cardData.height} m`);
+		const pokemonWeight = screen.getByText(
+			`${(cardData.weight / 10).toString().replace(".", ",")} kg`
+		);
+		const pokemonHeight = screen.getByText(
+			`${(cardData.height / 10).toString().replace(".", ",")} m`
+		);
 		const pokemonDescription = screen.getByText(cardData.description);
 
 		expect(pokemonName).toBeInTheDocument();

@@ -3,7 +3,7 @@ import { Header } from "@/components/molecules/Header";
 import { Card } from "@/components/molecules/Card";
 import { useEffect, useState } from "react";
 import { Pokemon } from "@/core/domain/Pokemon.model";
-import { pokemonService } from "./core/service/pokemon.service";
+import { pokemonService } from "@/core/service/pokemon.service";
 
 function App() {
 	const [pokemon, setPokemon] = useState<Pokemon>();

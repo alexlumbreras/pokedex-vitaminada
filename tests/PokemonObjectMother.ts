@@ -5,7 +5,7 @@ import { faker } from "@faker-js/faker";
 const create = (params?: Partial<Pokemon>): Pokemon => {
 	const defaultParams = {
 		name: faker.helpers.unique(faker.random.word),
-		index: faker.datatype.number({ max: 999 }),
+		index: faker.datatype.number({ min: 100, max: 999 }),
 		imageUrl: `${faker.internet.url}`,
 		types: {
 			firstType: faker.random.word(),

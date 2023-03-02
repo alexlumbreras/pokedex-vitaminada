@@ -1,6 +1,6 @@
 import App from "@/App";
-import { pokemonObjectMother } from "../PokemonObjectMother";
-import { render, screen } from "../custom-render";
+import { pokemonObjectMother } from "tests/PokemonObjectMother";
+import { render, screen } from "tests/custom-render";
 import { pokemonService } from "@/core/service/pokemon.service";
 
 const pokemon = pokemonObjectMother.create();

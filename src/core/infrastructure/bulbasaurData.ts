@@ -1,6 +1,6 @@
 import { PokemonDTO } from "./PokeApi.dto";
 
-export const bulbasaur: PokemonDTO = {
+export const bulbasaurRawData: PokemonDTO = {
 	abilities: [
 		{
 			ability: {

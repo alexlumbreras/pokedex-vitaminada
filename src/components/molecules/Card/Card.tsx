@@ -3,11 +3,15 @@ import { Tag } from "@/components/atoms/Tag";
 import { Pokemon } from "@/core/domain/Pokemon.model";
 
 export const Card = ({ pokemon }: { pokemon: Pokemon }) => {
+	const formattedIndex: string = `#${pokemon.index.toString().padStart(3, "0")}`;
+	const getFormattedMeasure = (measure: number): string =>
+		measure.toString().replace(".", ",");
+
 	return (
 		<StyledCard>
 			<div className="header">
 				<h4 className="name">{pokemon.name}</h4>
-				<p className="index">#{pokemon.index}</p>
+				<p className="index">{formattedIndex}</p>
 			</div>
 
 			<div className="content">
@@ -20,14 +24,14 @@ export const Card = ({ pokemon }: { pokemon: Pokemon }) => {
 					<div className="measures">
 						<div className="measure">
 							<div className="measure-data">
-								<p>{pokemon.weight} kg</p>
+								<p>{getFormattedMeasure(pokemon.weight / 10)} kg</p>
 							</div>
 							<p className="measure-name">Weight</p>
 						</div>
 
 						<div className="measure">
 							<div className="measure-data">
-								<p>{pokemon.height} m</p>
+								<p>{getFormattedMeasure(pokemon.height / 10)} m</p>
 							</div>
 							<p className="measure-name">Height</p>
 						</div>

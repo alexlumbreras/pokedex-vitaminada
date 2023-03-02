@@ -1,5 +1,3 @@
-// domain > services > infrastructure
-
 import { Pokemon } from "@/core/domain/Pokemon.model";
 import { pokeApiMapper } from "./PokeApi.mapper";
 
