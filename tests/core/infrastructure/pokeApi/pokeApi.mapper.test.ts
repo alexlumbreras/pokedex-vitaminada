@@ -2,7 +2,7 @@ import { Pokemon } from "@/core/domain/Pokemon.model";
 import { bulbasaurRawData } from "@/core/infrastructure/bulbasaurData";
 import { pokeApiMapper } from "@/core/infrastructure/PokeApi.mapper";
 
-describe("Pokemon mapper", () => {
+describe("PokeApi mapper", () => {
 	const Bulbasaur: Pokemon = {
 		name: "bulbasaur",
 		index: 1,
@@ -18,7 +18,7 @@ describe("Pokemon mapper", () => {
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, sapien quis rhoncus commodo, ex ante euismod augue, a sollicitudin.",
 	};
 
-	it("Mapping a certain pokemon to domain model", () => {
+	it("Returns a certain mapped pokemon", () => {
 		const pokemon = pokeApiMapper.mapData(bulbasaurRawData);
 
 		expect(pokemon).toStrictEqual(Bulbasaur);

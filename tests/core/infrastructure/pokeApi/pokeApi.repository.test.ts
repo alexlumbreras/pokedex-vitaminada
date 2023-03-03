@@ -1,9 +1,10 @@
 import { Pokemon } from "@/core/domain/Pokemon.model";
 import { bulbasaurRawData } from "@/core/infrastructure/bulbasaurData";
 import { pokeApiMapper } from "@/core/infrastructure/PokeApi.mapper";
+import { pokeApiRepository } from "@/core/infrastructure/PokeApi.repository";
 
-describe("Fetching PokeApi ", () => {
-	const BASE_URL = "https://pokeapi.co/api/v2/pokemon/bulbasaur";
+describe("PokeApi repository", () => {
+	const BASE_URL = "https://pokeapi.co/api/v2/pokemon/1";
 	const fakeData = bulbasaurRawData;
 	const Bulbasaur: Pokemon = {
 		name: "bulbasaur",
@@ -20,31 +21,17 @@ describe("Fetching PokeApi ", () => {
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, sapien quis rhoncus commodo, ex ante euismod augue, a sollicitudin.",
 	};
 
-	it("Fetching a certain pokemon (bulbasaur)", async () => {
+	it.only("Fetching a certain pokemon (bulbasaur)", async () => {
 		global.fetch = jest.fn(() =>
 			Promise.resolve({ json: () => Promise.resolve(fakeData) })
 		) as jest.Mock;
 
-		const res = await fetch(BASE_URL);
-		const json = await res.json();
+		jest.spyOn(pokeApiMapper, "mapData").mockReturnValue(Bulbasaur);
 
-		expect(json).toEqual(fakeData);
-		expect(fetch).toHaveBeenCalled();
+		const pokemon = await pokeApiRepository.getPokemon();
+
+		expect(pokemon).toEqual(Bulbasaur);
+		expect(pokeApiMapper.mapData).toHaveBeenCalledWith(fakeData);
 		expect(fetch).toHaveBeenCalledWith(BASE_URL);
-	});
-
-	it("Fetching a certain pokemon (bulbasaur) and transform it to a domain model", async () => {
-		global.fetch = jest.fn(() =>
-			Promise.resolve({ json: () => Promise.resolve(fakeData) })
-		) as jest.Mock;
-
-		const res = await fetch(BASE_URL);
-		const json = await res.json();
-
-		const mappedData = pokeApiMapper.mapData(json);
-
-		expect(json).toStrictEqual(fakeData);
-		expect(fetch).toHaveBeenCalledWith(BASE_URL);
-		expect(mappedData).toStrictEqual(Bulbasaur);
 	});
 });
