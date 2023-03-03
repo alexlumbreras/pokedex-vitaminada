@@ -18,12 +18,9 @@ describe("Pokemon mapper", () => {
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, sapien quis rhoncus commodo, ex ante euismod augue, a sollicitudin.",
 	};
 
-	it.only("Mapping a certain pokemon to domain model", () => {
-		jest.spyOn(pokeApiMapper, "mapData").mockReturnValue(Bulbasaur);
+	it("Mapping a certain pokemon to domain model", () => {
+		const pokemon = pokeApiMapper.mapData(bulbasaurRawData);
 
-		pokeApiMapper.mapData(bulbasaurRawData);
-
-		expect(pokeApiMapper.mapData).toHaveBeenCalled;
-		expect(pokeApiMapper.mapData).toHaveBeenCalledWith(bulbasaurRawData);
+		expect(pokemon).toStrictEqual(Bulbasaur);
 	});
 });
