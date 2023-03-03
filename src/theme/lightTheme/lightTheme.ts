@@ -1,7 +1,7 @@
-import { Theme } from "../theme";
-import { colors } from "../foundations/colors";
-import { fonts } from "../foundations/fonts";
-import { spaces } from "../foundations/spaces";
+import { Theme } from "@/theme/theme";
+import { colors } from "@/theme/foundations/colors";
+import { fonts } from "@/theme/foundations/fonts";
+import { spaces } from "@/theme/foundations/spaces";
 
 export const lightTheme: Theme = {
 	colors: colors,

@@ -5,6 +5,7 @@
 	},
 	"setupFilesAfterEnv": ["@testing-library/jest-dom/extend-expect"],
 	"moduleNameMapper": {
-		"^@/(.*)$": "<rootDir>/src/$1"
+		"^@/(.*)$": "<rootDir>/src/$1",
+		"^tests/(.*)$": "<rootDir>/tests/$1"
 	}
 }
