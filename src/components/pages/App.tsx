@@ -18,13 +18,13 @@ function App() {
 		setIsLoading(false);
 	};
 
-	useEffect(() => {
-		getPokemon();
-	}, []);
-
 	const getLoadingStatus = () => {
 		return <span className="status">Cargando Pokémons ...</span>;
 	};
+
+	useEffect(() => {
+		getPokemon();
+	}, []);
 
 	return (
 		<ThemeProvider>
