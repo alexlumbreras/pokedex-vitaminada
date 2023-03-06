@@ -9,8 +9,12 @@ export const Footer = () => {
 	const theme = useTheme() as Theme;
 	return (
 		<StyledFooter>
-			<Icon icon={GitHubLogo} color={"white"} />
-			<Icon icon={PokeApiLogo} color={""} />
+			<Icon
+				icon={GitHubLogo}
+				color={theme.themeColors.textColor}
+				className="logo"
+			/>
+			<Icon icon={PokeApiLogo} color={""} className="logo" />
 		</StyledFooter>
 	);
 };

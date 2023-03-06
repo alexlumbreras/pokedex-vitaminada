@@ -6,12 +6,17 @@ type Props = {
 		color: string;
 	}>;
 	color: string;
+	className?: string;
 };
 
-export const Icon: React.FC<Props> = ({ icon: SvgIcon, color }) => {
+export const Icon: React.FC<Props> = ({ icon: SvgIcon, color, className }) => {
 	const theme = useContext(ThemeContext);
 
 	const themeColor = theme.colors[color] || theme.themeColors[color];
 
-	return <SvgIcon color={themeColor ?? color} />;
+	return (
+		<section className={className}>
+			<SvgIcon color={themeColor ?? color} />
+		</section>
+	);
 };
