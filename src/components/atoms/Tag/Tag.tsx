@@ -1,10 +1,5 @@
 import { StyledTag } from "./Tag.styled";
 
-interface TagProps {
-	type: string;
-	label: string;
-}
-
-export const Tag = ({ type, label }: TagProps) => {
+export const Tag = ({ type, label }: { type: string; label: string }) => {
 	return <StyledTag type={type}>{label}</StyledTag>;
 };
