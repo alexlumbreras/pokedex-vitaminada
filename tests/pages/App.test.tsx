@@ -1,4 +1,4 @@
-import App from "@/App";
+import App from "@/components/pages/App";
 import { pokemonObjectMother } from "tests/PokemonObjectMother";
 import { render, screen } from "tests/custom-render";
 import { pokemonService } from "@/core/service/pokemon.service";
