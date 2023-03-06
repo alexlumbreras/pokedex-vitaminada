@@ -8,7 +8,7 @@ export const Card = ({ pokemon }: { pokemon: Pokemon }) => {
 		measure.toString().replace(".", ",");
 
 	return (
-		<StyledCard>
+		<StyledCard type={pokemon.types.firstType}>
 			<div className="header">
 				<h4 className="name">{pokemon.name}</h4>
 				<p className="index">{formattedIndex}</p>

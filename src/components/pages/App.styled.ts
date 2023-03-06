@@ -12,7 +12,6 @@ export const StyledWrapper = styled.div`
 		height: 100%;
 
 		display: grid;
-		grid-template-rows: auto 1fr;
 		gap: ${({ theme }) => theme.spaces.l};
 
 		padding: 0 ${({ theme }) => theme.spaces.m};
@@ -21,8 +20,12 @@ export const StyledWrapper = styled.div`
 		margin: auto;
 	}
 
+	.status {
+		justify-self: center;
+		align-self: center;
+		text-align: center;
+	}
 	.grid {
-		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 		gap: ${({ theme }) => theme.spaces.l};
 	}

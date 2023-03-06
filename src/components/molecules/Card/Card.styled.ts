@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledCard = styled.div`
+export const StyledCard = styled.div<{ type: string }>`
 	display: grid;
 	grid-template-rows: min-content 240px;
 	align-content: space-between;
@@ -11,7 +11,9 @@ export const StyledCard = styled.div`
 	padding: ${({ theme }) => theme.spaces.xxs};
 	border-radius: ${({ theme }) => theme.spaces.s};
 	box-shadow: "0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.25)";
-	background-color: ${({ theme }) => theme.colors.grass};
+	background-color: ${({ type }) =>
+		({ theme }) =>
+			theme.colors[type]};
 
 	.header {
 		display: flex;

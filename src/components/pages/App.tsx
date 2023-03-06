@@ -22,18 +22,22 @@ function App() {
 		getPokemon();
 	}, []);
 
+	const getLoadingStatus = () => {
+		return <span className="status">Cargando Pokémons ...</span>;
+	};
+
 	return (
 		<ThemeProvider>
 			<StyledWrapper>
 				<Header />
 				<main className="main">
-					<section className="grid">
-						{!!pokemon ? (
+					{!!pokemon ? (
+						<section className="grid">
 							<Card pokemon={pokemon} />
-						) : (
-							<span>Se está cargando la página</span>
-						)}
-					</section>
+						</section>
+					) : (
+						getLoadingStatus()
+					)}
 				</main>
 				<Footer />
 			</StyledWrapper>
