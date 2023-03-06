@@ -5,7 +5,12 @@ import { useEffect, useState } from "react";
 import { Pokemon } from "@/core/domain/Pokemon.model";
 import { pokemonService } from "@/core/service/pokemon.service";
 import { Footer } from "@/components/molecules/Footer";
-import { StyledWrapper } from "./App.styled";
+import {
+	StyledContent,
+	StyledGrid,
+	StyledStatus,
+	StyledWrapper,
+} from "./App.styled";
 
 function App() {
 	const [pokemon, setPokemon] = useState<Pokemon>();
@@ -18,27 +23,27 @@ function App() {
 		setIsLoading(false);
 	};
 
-	const getLoadingStatus = () => {
-		return <span className="status">Cargando Pokémons ...</span>;
-	};
-
 	useEffect(() => {
 		getPokemon();
 	}, []);
+
+	const getLoadingStatus = () => {
+		return <StyledStatus className="status">Cargando Pokémons ...</StyledStatus>;
+	};
 
 	return (
 		<ThemeProvider>
 			<StyledWrapper>
 				<Header />
-				<main className="main">
+				<StyledContent className="main">
 					{!!pokemon ? (
-						<section className="grid">
+						<StyledGrid className="grid">
 							<Card pokemon={pokemon} />
-						</section>
+						</StyledGrid>
 					) : (
 						getLoadingStatus()
 					)}
-				</main>
+				</StyledContent>
 				<Footer />
 			</StyledWrapper>
 		</ThemeProvider>

@@ -4,11 +4,16 @@ import { Pokemon } from "@/core/domain/Pokemon.model";
 
 export const Card = ({ pokemon }: { pokemon: Pokemon }) => {
 	const formattedIndex: string = `#${pokemon.index.toString().padStart(3, "0")}`;
+
 	const getFormattedMeasure = (measure: number): string =>
 		measure.toString().replace(".", ",");
 
+	const setFirstTypeColor = () => {
+		return pokemon.types.firstType;
+	};
+
 	return (
-		<StyledCard type={pokemon.types.firstType}>
+		<StyledCard type={setFirstTypeColor()}>
 			<div className="header">
 				<h4 className="name">{pokemon.name}</h4>
 				<p className="index">{formattedIndex}</p>
