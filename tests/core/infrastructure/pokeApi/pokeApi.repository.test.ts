@@ -21,7 +21,7 @@ describe("PokeApi repository", () => {
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, sapien quis rhoncus commodo, ex ante euismod augue, a sollicitudin.",
 	};
 
-	it.only("Fetching a certain pokemon (bulbasaur)", async () => {
+	it("Fetching a certain pokemon (bulbasaur)", async () => {
 		global.fetch = jest.fn(() =>
 			Promise.resolve({ json: () => Promise.resolve(fakeData) })
 		) as jest.Mock;

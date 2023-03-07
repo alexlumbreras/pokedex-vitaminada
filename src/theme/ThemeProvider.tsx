@@ -3,7 +3,7 @@ import { lightTheme } from "./lightTheme";
 import { darkTheme } from "./darkTheme";
 import { GlobalStyles } from "./globalStyles";
 
-const theme = "LIGHT";
+const theme = "DARK";
 
 type Props = {
 	children: React.ReactNode;

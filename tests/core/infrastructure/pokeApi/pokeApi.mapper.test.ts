@@ -18,7 +18,7 @@ describe("PokeApi mapper", () => {
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, sapien quis rhoncus commodo, ex ante euismod augue, a sollicitudin.",
 	};
 
-	it("Returns a certain mapped pokemon", () => {
+	it("Returns mapped data", () => {
 		const pokemon = pokeApiMapper.mapData(bulbasaurRawData);
 
 		expect(pokemon).toStrictEqual(Bulbasaur);

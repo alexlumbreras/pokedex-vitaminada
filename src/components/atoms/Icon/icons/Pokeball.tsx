@@ -1,8 +1,4 @@
-type IconProps = {
-	color: string;
-};
-
-export const Pokeball: React.FC<IconProps> = ({ color }) => {
+export const Pokeball = ({ color }: { color: string }) => {
 	return (
 		<svg
 			width="24"
