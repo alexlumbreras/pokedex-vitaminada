@@ -8,12 +8,11 @@ export const Card = ({ pokemon }: { pokemon: Pokemon }) => {
 	const getFormattedMeasure = (measure: number): string =>
 		measure.toString().replace(".", ",");
 
-	const setFirstTypeColor = () => {
-		return pokemon.types.firstType;
-	};
+	const firstType = pokemon.types.firstType;
+	const secondType = pokemon.types.secondType;
 
 	return (
-		<StyledCard type={setFirstTypeColor()}>
+		<StyledCard type={firstType}>
 			<div className="header">
 				<h4 className="name">{pokemon.name}</h4>
 				<p className="index">{formattedIndex}</p>
@@ -23,8 +22,8 @@ export const Card = ({ pokemon }: { pokemon: Pokemon }) => {
 				<img className="image" src={pokemon.imageUrl} alt={pokemon.name} />
 				<div className="information">
 					<div className="types">
-						<Tag label={pokemon.types.firstType} type={pokemon.types.firstType} />
-						<Tag label={pokemon.types.secondType} type={pokemon.types.secondType} />
+						<Tag label={firstType} type={firstType} />
+						<Tag label={secondType} type={secondType} />
 					</div>
 					<div className="measures">
 						<div className="measure">
