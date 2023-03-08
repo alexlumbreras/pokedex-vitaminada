@@ -5,6 +5,8 @@ import { pokeApiRepository } from "@/core/infrastructure/PokeApi.repository";
 
 describe("PokeApi repository", () => {
 	const BASE_URL = "https://pokeapi.co/api/v2/pokemon/1";
+	const POKEMON_INDEX = "1";
+
 	const fakeData = bulbasaurRawData;
 	const Bulbasaur: Pokemon = {
 		name: "bulbasaur",
@@ -28,7 +30,7 @@ describe("PokeApi repository", () => {
 
 		jest.spyOn(pokeApiMapper, "mapData").mockReturnValue(Bulbasaur);
 
-		const pokemon = await pokeApiRepository.getPokemon();
+		const pokemon = await pokeApiRepository.getPokemon(POKEMON_INDEX);
 
 		expect(pokemon).toEqual(Bulbasaur);
 		expect(pokeApiMapper.mapData).toHaveBeenCalledWith(fakeData);
