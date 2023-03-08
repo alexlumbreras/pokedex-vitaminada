@@ -17,62 +17,69 @@ import {
 	StyledCardTypes,
 	StyledPokeApiCard,
 } from "./PokeApiCard.styled";
+import { Card } from "../molecules/Card";
 
-export const PokeApiCard = ({ pokemonApiKey }: { pokemonApiKey: string }) => {
+export const PokeApiCard = ({ identifier }: { identifier: string }) => {
+	//sacar a hook
 	const [pokemon, setPokemon] = useState<Pokemon>();
+	const [isLoading, setIsLoading] = useState<boolean>(false);
 
 	const getPokemon = async () => {
-		const pokemon = await pokemonService.getPokemon(pokemonApiKey);
+		setIsLoading(true);
+		const pokemon = await pokemonService.getPokemon(identifier);
 		setPokemon(pokemon);
+		setIsLoading(false);
 	};
 
 	useEffect(() => {
 		getPokemon();
 	}, []);
 
-	const getFormattedMeasure = (measure: number): string =>
-		measure.toString().replace(".", ",");
+	// const getFormattedMeasure = (measure: number): string =>
+	// 	measure.toString().replace(".", ",");
 
-	const getFormattedIndex = (index: number): string =>
-		`#${index.toString().padStart(3, "0")}`;
+	// const getFormattedIndex = (index: number): string =>
+	// 	`#${index.toString().padStart(3, "0")}`;
 
-	return !!pokemon ? (
-		<StyledPokeApiCard type={pokemon.types.firstType}>
-			<StyledCardHeader>
-				<StyledCardName>{pokemon.name}</StyledCardName>
-				<StyledCardIndex>{getFormattedIndex(pokemon.index)}</StyledCardIndex>
-			</StyledCardHeader>
+	if (isLoading || !pokemon) {
+		return <span>Loading...</span>;
+	}
 
-			<StyledCardContent>
-				<StyledCardImage src={pokemon.imageUrl} alt={pokemon.name} />
+	return <Card pokemon={pokemon} />;
 
-				<StyledCardInformation>
-					<StyledCardTypes>
-						<Tag label={pokemon.types.firstType} type={pokemon.types.firstType} />
-						<Tag label={pokemon.types.secondType} type={pokemon.types.secondType} />
-					</StyledCardTypes>
+	// <StyledPokeApiCard type={pokemon.types.firstType}>
+	// 	<StyledCardHeader>
+	// 		<StyledCardName>{pokemon.name}</StyledCardName>
+	// 		<StyledCardIndex>{getFormattedIndex(pokemon.index)}</StyledCardIndex>
+	// 	</StyledCardHeader>
 
-					<StyledCardMeasures>
-						<StyledCardMeasure>
-							<StyledCardMeasureData>
-								<p>{getFormattedMeasure(pokemon.weight / 10)} kg</p>
-							</StyledCardMeasureData>
-							<StyledCardMeasureName>Weight</StyledCardMeasureName>
-						</StyledCardMeasure>
+	// 	<StyledCardContent>
+	// 		<StyledCardImage src={pokemon.imageUrl} alt={pokemon.name} />
 
-						<StyledCardMeasure>
-							<StyledCardMeasureData>
-								<p>{getFormattedMeasure(pokemon.height / 10)} m</p>
-							</StyledCardMeasureData>
-							<StyledCardMeasureName>Height</StyledCardMeasureName>
-						</StyledCardMeasure>
-					</StyledCardMeasures>
+	// 		<StyledCardInformation>
+	// 			<StyledCardTypes>
+	// 				<Tag label={pokemon.types.firstType} type={pokemon.types.firstType} />
+	// 				<Tag label={pokemon.types.secondType} type={pokemon.types.secondType} />
+	// 			</StyledCardTypes>
 
-					<StyledCardDescription>{pokemon.description}</StyledCardDescription>
-				</StyledCardInformation>
-			</StyledCardContent>
-		</StyledPokeApiCard>
-	) : (
-		<span></span>
-	);
+	// 			<StyledCardMeasures>
+	// 				<StyledCardMeasure>
+	// 					<StyledCardMeasureData>
+	// 						<p>{getFormattedMeasure(pokemon.weight / 10)} kg</p>
+	// 					</StyledCardMeasureData>
+	// 					<StyledCardMeasureName>Weight</StyledCardMeasureName>
+	// 				</StyledCardMeasure>
+
+	// 				<StyledCardMeasure>
+	// 					<StyledCardMeasureData>
+	// 						<p>{getFormattedMeasure(pokemon.height / 10)} m</p>
+	// 					</StyledCardMeasureData>
+	// 					<StyledCardMeasureName>Height</StyledCardMeasureName>
+	// 				</StyledCardMeasure>
+	// 			</StyledCardMeasures>
+
+	// 			<StyledCardDescription>{pokemon.description}</StyledCardDescription>
+	// 		</StyledCardInformation>
+	// 	</StyledCardContent>
+	// </StyledPokeApiCard>
 };

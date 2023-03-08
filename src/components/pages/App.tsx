@@ -14,7 +14,7 @@ function App() {
 				<StyledContent>
 					<StyledGrid>
 						{pokemonIndexArray.map((index) => (
-							<PokeApiCard pokemonApiKey={index} key={index} />
+							<PokeApiCard identifier={index} key={index} />
 						))}
 					</StyledGrid>
 				</StyledContent>

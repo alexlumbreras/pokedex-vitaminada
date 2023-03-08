@@ -4,6 +4,7 @@ import { render, screen } from "tests/custom-render";
 import { pokemonService } from "@/core/service/pokemon.service";
 
 const pokemon = pokemonObjectMother.create();
+//pendiente
 
 describe("App", () => {
 	it("renders component", async () => {
