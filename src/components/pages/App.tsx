@@ -4,6 +4,8 @@ import { Footer } from "@/components/molecules/Footer";
 import { StyledContent, StyledGrid, StyledWrapper } from "./App.styled";
 import { PokeApiCard } from "../organisms";
 
+const pokemonIndexArray = ["1"];
+
 function App() {
 	return (
 		<ThemeProvider>
@@ -11,7 +13,9 @@ function App() {
 				<Header />
 				<StyledContent>
 					<StyledGrid>
-						<PokeApiCard></PokeApiCard>
+						{pokemonIndexArray.map((index) => (
+							<PokeApiCard pokemonApiKey={index} key={index} />
+						))}
 					</StyledGrid>
 				</StyledContent>
 				<Footer />

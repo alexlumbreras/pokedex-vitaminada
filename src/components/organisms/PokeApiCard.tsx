@@ -18,11 +18,11 @@ import {
 	StyledPokeApiCard,
 } from "./PokeApiCard.styled";
 
-export const PokeApiCard = () => {
+export const PokeApiCard = ({ pokemonApiKey }: { pokemonApiKey: string }) => {
 	const [pokemon, setPokemon] = useState<Pokemon>();
 
 	const getPokemon = async () => {
-		const pokemon = await pokemonService.getPokemon();
+		const pokemon = await pokemonService.getPokemon(pokemonApiKey);
 		setPokemon(pokemon);
 	};
 

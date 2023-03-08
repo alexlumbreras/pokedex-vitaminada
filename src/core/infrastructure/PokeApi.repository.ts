@@ -1,10 +1,9 @@
 import { Pokemon } from "@/core/domain/Pokemon.model";
 import { pokeApiMapper } from "./PokeApi.mapper";
 
-const URL_BULBASAUR = "https://pokeapi.co/api/v2/pokemon/1";
-
-const getPokemon = async (): Promise<Pokemon> => {
-	const response = await fetch(`${URL_BULBASAUR}`);
+const getPokemon = async (pokemonApikey: string): Promise<Pokemon> => {
+	const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonApikey}`;
+	const response = await fetch(`${pokemonUrl}`);
 	const jsonResponse = await response.json();
 
 	return pokeApiMapper.mapData(jsonResponse);
