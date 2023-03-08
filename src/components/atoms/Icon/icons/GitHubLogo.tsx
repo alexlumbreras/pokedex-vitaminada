@@ -5,6 +5,7 @@ export const GitHubLogo = ({ color }: { color: string }) => {
 			width="30"
 			height="30"
 			viewBox="0 0 24 24"
+			role="img"
 		>
 			<path
 				fill={color}

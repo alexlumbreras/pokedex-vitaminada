@@ -1,4 +1,18 @@
-import { StyledCard } from "./Card.styled";
+import {
+	StyledCard,
+	StyledCardContent,
+	StyledCardDescription,
+	StyledCardHeader,
+	StyledCardImage,
+	StyledCardIndex,
+	StyledCardInformation,
+	StyledCardMeasure,
+	StyledCardMeasureData,
+	StyledCardMeasureName,
+	StyledCardMeasures,
+	StyledCardName,
+	StyledCardTypes,
+} from "./Card.styled";
 import { Tag } from "@/components/atoms/Tag";
 import { Pokemon } from "@/core/domain/Pokemon.model";
 
@@ -13,37 +27,38 @@ export const Card = ({ pokemon }: { pokemon: Pokemon }) => {
 
 	return (
 		<StyledCard type={firstType}>
-			<div className="header">
-				<h4 className="name">{pokemon.name}</h4>
-				<p className="index">{formattedIndex}</p>
-			</div>
+			<StyledCardHeader>
+				<StyledCardName>{pokemon.name}</StyledCardName>
+				<StyledCardIndex>{formattedIndex}</StyledCardIndex>
+			</StyledCardHeader>
 
-			<div className="content">
-				<img className="image" src={pokemon.imageUrl} alt={pokemon.name} />
-				<div className="information">
-					<div className="types">
+			<StyledCardContent>
+				<StyledCardImage src={pokemon.imageUrl} alt={pokemon.name} />
+
+				<StyledCardInformation>
+					<StyledCardTypes>
 						<Tag label={firstType} type={firstType} />
 						<Tag label={secondType} type={secondType} />
-					</div>
-					<div className="measures">
-						<div className="measure">
-							<div className="measure-data">
+					</StyledCardTypes>
+
+					<StyledCardMeasures>
+						<StyledCardMeasure>
+							<StyledCardMeasureData>
 								<p>{getFormattedMeasure(pokemon.weight / 10)} kg</p>
-							</div>
-							<p className="measure-name">Weight</p>
-						</div>
+							</StyledCardMeasureData>
+							<StyledCardMeasureName>Weight</StyledCardMeasureName>
+						</StyledCardMeasure>
 
-						<div className="measure">
-							<div className="measure-data">
+						<StyledCardMeasure>
+							<StyledCardMeasureData>
 								<p>{getFormattedMeasure(pokemon.height / 10)} m</p>
-							</div>
-							<p className="measure-name">Height</p>
-						</div>
-					</div>
-
-					<p className="description">{pokemon.description}</p>
-				</div>
-			</div>
+							</StyledCardMeasureData>
+							<StyledCardMeasureName>Height</StyledCardMeasureName>
+						</StyledCardMeasure>
+					</StyledCardMeasures>
+					<StyledCardDescription>{pokemon.description}</StyledCardDescription>
+				</StyledCardInformation>
+			</StyledCardContent>
 		</StyledCard>
 	);
 };
