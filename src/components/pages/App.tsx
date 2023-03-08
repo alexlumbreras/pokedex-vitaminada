@@ -9,8 +9,8 @@ function App() {
 		<ThemeProvider>
 			<StyledWrapper>
 				<Header />
-				<StyledContent className="main">
-					<StyledGrid className="grid">
+				<StyledContent>
+					<StyledGrid>
 						<PokeApiCard></PokeApiCard>
 					</StyledGrid>
 				</StyledContent>
