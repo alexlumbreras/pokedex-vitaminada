@@ -21,13 +21,8 @@ export const StyledContent = styled.main`
 	margin: auto;
 `;
 
-export const StyledStatus = styled.span`
-	justify-self: center;
-	align-self: center;
-	text-align: center;
-`;
-
 export const StyledGrid = styled.section`
+	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 	gap: ${({ theme }) => theme.spaces.l};
 `;

@@ -5,8 +5,8 @@ import { screen, render } from "tests/custom-render";
 describe("Card component", () => {
 	const cardData = pokemonObjectMother.create();
 
-	it("Shows a Pokemon card with all its attributes", () => {
-		render(<Card pokemon={cardData} />);
+	it("Shows a Pokemon card with all its attributes when image is loaded", () => {
+		render(<Card pokemon={cardData} onImageLoaded={() => true} />);
 
 		const pokemonName = screen.getByText(cardData.name);
 		const pokemonIndex = screen.getByText(`#${cardData.index}`);

@@ -1,49 +1,87 @@
-import { StyledCard } from "./Card.styled";
+import {
+	StyledCard,
+	StyledCardContent,
+	StyledCardDescription,
+	StyledCardHeader,
+	StyledCardImage,
+	StyledCardIndex,
+	StyledCardInformation,
+	StyledCardMeasure,
+	StyledCardMeasureData,
+	StyledCardMeasureName,
+	StyledCardMeasures,
+	StyledCardName,
+	StyledCardTypes,
+	StyledWrapper,
+} from "./Card.styled";
 import { Tag } from "@/components/atoms/Tag";
 import { Pokemon } from "@/core/domain/Pokemon.model";
+import { CardLoader } from "@/components/molecules/CardLoader";
 
-export const Card = ({ pokemon }: { pokemon: Pokemon }) => {
-	const formattedIndex: string = `#${pokemon.index.toString().padStart(3, "0")}`;
+export const Card = ({
+	pokemon,
+	isLoading,
+	onImageLoaded,
+}: {
+	pokemon?: Pokemon;
+	isLoading?: boolean;
+	onImageLoaded: () => void;
+}) => {
+	const formattedIndex: string = `#${pokemon?.index
+		.toString()
+		.padStart(3, "0")}`;
 
 	const getFormattedMeasure = (measure: number): string =>
 		measure.toString().replace(".", ",");
 
-	const firstType = pokemon.types.firstType;
-	const secondType = pokemon.types.secondType;
+	const handleLoad = () => {
+		onImageLoaded();
+	};
+
+	const firstType = pokemon?.types.firstType ?? "";
+	const secondType = pokemon?.types.secondType ?? "";
 
 	return (
-		<StyledCard type={firstType}>
-			<div className="header">
-				<h4 className="name">{pokemon.name}</h4>
-				<p className="index">{formattedIndex}</p>
-			</div>
+		<StyledWrapper>
+			{isLoading && <CardLoader />}
+			<StyledCard type={firstType}>
+				<StyledCardHeader>
+					<StyledCardName>{pokemon?.name}</StyledCardName>
+					<StyledCardIndex>{formattedIndex}</StyledCardIndex>
+				</StyledCardHeader>
 
-			<div className="content">
-				<img className="image" src={pokemon.imageUrl} alt={pokemon.name} />
-				<div className="information">
-					<div className="types">
-						<Tag label={firstType} type={firstType} />
-						<Tag label={secondType} type={secondType} />
-					</div>
-					<div className="measures">
-						<div className="measure">
-							<div className="measure-data">
-								<p>{getFormattedMeasure(pokemon.weight / 10)} kg</p>
-							</div>
-							<p className="measure-name">Weight</p>
-						</div>
+				<StyledCardContent>
+					<StyledCardImage
+						src={pokemon?.imageUrl}
+						alt={pokemon?.name}
+						onLoad={handleLoad}
+					/>
 
-						<div className="measure">
-							<div className="measure-data">
-								<p>{getFormattedMeasure(pokemon.height / 10)} m</p>
-							</div>
-							<p className="measure-name">Height</p>
-						</div>
-					</div>
+					<StyledCardInformation>
+						<StyledCardTypes>
+							<Tag label={firstType} type={firstType} />
+							<Tag label={secondType} type={secondType} />
+						</StyledCardTypes>
 
-					<p className="description">{pokemon.description}</p>
-				</div>
-			</div>
-		</StyledCard>
+						<StyledCardMeasures>
+							<StyledCardMeasure>
+								<StyledCardMeasureData>
+									<p>{getFormattedMeasure(Number(pokemon?.weight) / 10)} kg</p>
+								</StyledCardMeasureData>
+								<StyledCardMeasureName>Weight</StyledCardMeasureName>
+							</StyledCardMeasure>
+
+							<StyledCardMeasure>
+								<StyledCardMeasureData>
+									<p>{getFormattedMeasure(Number(pokemon?.height) / 10)} m</p>
+								</StyledCardMeasureData>
+								<StyledCardMeasureName>Height</StyledCardMeasureName>
+							</StyledCardMeasure>
+						</StyledCardMeasures>
+						<StyledCardDescription>{pokemon?.description}</StyledCardDescription>
+					</StyledCardInformation>
+				</StyledCardContent>
+			</StyledCard>
+		</StyledWrapper>
 	);
 };

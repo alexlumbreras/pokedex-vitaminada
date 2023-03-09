@@ -8,7 +8,7 @@ const mapData = (pokemon: PokemonDTO): Pokemon => {
 		imageUrl: pokemon.sprites.other["official-artwork"].front_default,
 		types: {
 			firstType: pokemon.types[0].type.name,
-			secondType: pokemon.types[1].type.name,
+			secondType: pokemon.types[1]?.type.name,
 		},
 		weight: pokemon.weight,
 		height: pokemon.height,
