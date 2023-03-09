@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const StyledWrapper = styled.div`
+	position: relative;
+`;
+
 export const StyledCard = styled.div<{ type: string }>`
 	display: grid;
 	grid-template-rows: min-content 240px;

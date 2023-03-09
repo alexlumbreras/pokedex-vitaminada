@@ -1,13 +1,16 @@
-import { Card } from "../molecules/Card";
-import { CardLoader } from "../molecules/CardLoader";
+import { useState } from "react";
+import { Card } from "@/components/molecules/Card";
 import { useFetchPokemonData } from "./useFetchPokemonData";
 
 export const PokeApiCard = ({ identifier }: { identifier: string }) => {
 	const { pokemon, isLoading } = useFetchPokemonData(identifier);
+	const [imageLoaded, setImageLoaded] = useState<boolean>(false);
 
-	if (isLoading || !pokemon) {
-		return <CardLoader />;
-	}
-
-	return <Card pokemon={pokemon} />;
+	return (
+		<Card
+			pokemon={pokemon}
+			onImageLoaded={() => setImageLoaded(true)}
+			isLoading={isLoading || !imageLoaded}
+		/>
+	);
 };

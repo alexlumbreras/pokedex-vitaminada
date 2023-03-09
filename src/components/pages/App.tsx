@@ -2,8 +2,7 @@ import { ThemeProvider } from "@/theme/ThemeProvider";
 import { Header } from "@/components/molecules/Header";
 import { Footer } from "@/components/molecules/Footer";
 import { StyledContent, StyledGrid, StyledWrapper } from "./App.styled";
-import { PokeApiCard } from "../organisms";
-import { CardLoader } from "../molecules/CardLoader";
+import { PokeApiCard } from "@/components/organisms/PokeApiCard";
 
 const pokemonIndexArray = [
 	"sceptile-mega",
@@ -21,10 +20,9 @@ function App() {
 				<Header />
 				<StyledContent>
 					<StyledGrid>
-						{/* {pokemonIndexArray.map((index) => (
+						{pokemonIndexArray.map((index) => (
 							<PokeApiCard identifier={index} key={index} />
-						))} */}
-						<CardLoader />
+						))}
 					</StyledGrid>
 				</StyledContent>
 				<Footer />

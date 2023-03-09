@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledCardLoader = styled.section`
+	position: absolute;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -13,6 +14,11 @@ export const StyledCardLoader = styled.section`
 	border-radius: ${({ theme }) => theme.spaces.s};
 	box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.25);
 	background-color: dodgerblue;
+`;
+
+export const StyledLogoImage = styled.img`
+	width: 270px;
+	height: 100px;
 `;
 
 export const StyledLoaderImage = styled.img`
