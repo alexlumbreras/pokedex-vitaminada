@@ -13,5 +13,3 @@ export const StyledContent = styled.main`
 	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 	gap: ${({ theme }) => theme.spaces.l};
 `;
-
-export const StyledGrid = styled.section``;
