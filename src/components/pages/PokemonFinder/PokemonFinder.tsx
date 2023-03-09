@@ -1,3 +1,5 @@
+import { StyledContent } from "../Pokedex/Pokedex.styled";
+
 export const PokemonFinder = () => {
-	return <span>Finder</span>;
+	return <>ggg</>;
 };

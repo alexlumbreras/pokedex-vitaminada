@@ -1,8 +1,5 @@
-import { ThemeProvider } from "@/theme/ThemeProvider";
-import { Header } from "@/components/molecules/Header";
-import { Footer } from "@/components/molecules/Footer";
 import { PokeApiCard } from "@/components/organisms/PokeApiCard";
-import { StyledContent, StyledGrid, StyledWrapper } from "./Pokedex.styled";
+import { StyledContent, StyledGrid } from "./Pokedex.styled";
 
 const pokemonIndexArray = [
 	"sceptile-mega",
@@ -15,17 +12,11 @@ const pokemonIndexArray = [
 
 function Pokedex() {
 	return (
-		<StyledWrapper>
-			<Header />
-			<StyledContent>
-				<StyledGrid>
-					{pokemonIndexArray.map((index) => (
-						<PokeApiCard identifier={index} key={index} />
-					))}
-				</StyledGrid>
-			</StyledContent>
-			<Footer />
-		</StyledWrapper>
+		<StyledContent>
+			{pokemonIndexArray.map((index) => (
+				<PokeApiCard identifier={index} key={index} />
+			))}
+		</StyledContent>
 	);
 }
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const StyledHeader = styled.header`
 	padding: ${({ theme }) => theme.spaces.l};
@@ -8,11 +9,30 @@ export const StyledHeader = styled.header`
 	background-color: ${({ theme }) => theme.themeColors.mainColor};
 
 	display: flex;
-	align-items: center;
-
-	gap: ${({ theme }) => theme.spaces.m};
+	justify-content: space-evenly;
 
 	font-size: ${({ theme }) => theme.fonts.heading.textSize.m};
 	line-height: ${({ theme }) => theme.fonts.heading.textSize.l};
 	font-weight: ${({ theme }) => theme.fonts.fontWeight.bold};
+`;
+
+export const StyledWrapper = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: ${({ theme }) => theme.spaces.m};
+`;
+
+export const StyledLink = styled(Link)`
+	text-decoration: none;
+	color: ${({ theme }) => theme.themeColors.textColor};
+
+	:hover {
+		color: ${({ theme }) => theme.themeColors.secondaryColor};
+	}
+`;
+
+export const StyledSearchImage = styled.img`
+	width: 24px;
+	height: 24px;
 `;

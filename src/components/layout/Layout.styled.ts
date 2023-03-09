@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledFinder = styled.div`
+export const StyledWrapper = styled.div`
 	height: 100vh;
 
 	display: grid;
