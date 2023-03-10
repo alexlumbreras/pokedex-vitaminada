@@ -15,8 +15,6 @@ export const PokemonFinder = () => {
 		setPokemons(newPokemon);
 	};
 
-	console.log(pokemons);
-
 	return (
 		<StyledFinder>
 			<StyledSearchBarWrapper>

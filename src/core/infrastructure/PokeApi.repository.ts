@@ -3,9 +3,9 @@ import { PokemonList } from "../domain/PokemonList.model";
 import { pokeApiMapper } from "./PokeApi.mapper";
 import { PokeApiListItemDTO } from "./PokeApiList.dto";
 
-const BASE_URL = "https://pokeapi.co/api/v2/pokemon";
+const BASE_URL = "https://pokeapi.co/api/v2";
 const getPokemon = async (identifier: string): Promise<Pokemon> => {
-	const pokemonUrl = `${BASE_URL}/${identifier}`;
+	const pokemonUrl = `${BASE_URL}/pokemon/${identifier}`;
 	const response = await fetch(pokemonUrl);
 	const jsonResponse = await response.json();
 
