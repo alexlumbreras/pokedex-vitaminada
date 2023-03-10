@@ -1,29 +1,19 @@
-import { PokemonList } from "@/core/domain/PokemonList.model";
-import { pokemonService } from "@/core/service/pokemon.service";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
 	StyledList,
 	StyledListItem,
 	StyledSearchBar,
 } from "./SearchBar.styled";
+import { useFetchPokemonList } from "./useFetchPokemonList";
 
 export const SearchBar = ({
 	onSearch,
 }: {
 	onSearch: (searchValue: string) => void;
 }) => {
-	const [pokemonList, setPokemonList] = useState<PokemonList>([]);
 	const [searchInput, setSearchInput] = useState("");
 	const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
-
-	const getPokemons = async () => {
-		const pokemons = await pokemonService.getPokemonList();
-		setPokemonList(pokemons);
-	};
-
-	useEffect(() => {
-		getPokemons();
-	}, []);
+	const { pokemonList } = useFetchPokemonList();
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const value = event.target.value;
