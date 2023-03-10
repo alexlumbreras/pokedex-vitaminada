@@ -1,7 +1,11 @@
 import { SearchBar } from "@/components/molecules/SearchBar";
 import { PokeApiCard } from "@/components/organisms";
 import { useState } from "react";
-import { StyledFinder } from "./PokemonFinder.styled";
+import {
+	StyledContent,
+	StyledFinder,
+	StyledSearchBarWrapper,
+} from "./PokemonFinder.styled";
 
 export const PokemonFinder = () => {
 	const [pokemons, setPokemons] = useState<string[]>([]);
@@ -15,9 +19,13 @@ export const PokemonFinder = () => {
 
 	return (
 		<StyledFinder>
-			<SearchBar onSearch={handleSearch} />
-			{!!pokemons &&
-				pokemons.map((pokemon) => <PokeApiCard identifier={pokemon} />)}
+			<StyledSearchBarWrapper>
+				<SearchBar onSearch={handleSearch} />
+			</StyledSearchBarWrapper>
+			<StyledContent>
+				{!!pokemons &&
+					pokemons.map((pokemon) => <PokeApiCard identifier={pokemon} />)}
+			</StyledContent>
 		</StyledFinder>
 	);
 };

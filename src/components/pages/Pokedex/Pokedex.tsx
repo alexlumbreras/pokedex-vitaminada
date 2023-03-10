@@ -1,5 +1,5 @@
 import { PokeApiCard } from "@/components/organisms/PokeApiCard";
-import { StyledContent, StyledGrid } from "./Pokedex.styled";
+import { StyledContent } from "./Pokedex.styled";
 
 const pokemonIndexArray = [
 	"sceptile-mega",
