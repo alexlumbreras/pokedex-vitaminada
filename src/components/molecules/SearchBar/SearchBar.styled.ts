@@ -12,3 +12,14 @@ export const StyledSearchBar = styled.input`
 	background-color: white;
 	font-size: 16px;
 `;
+
+export const StyledList = styled.ul`
+	height: auto;
+	width: 500px;
+	background-color: white;
+`;
+
+export const StyledListItem = styled.li`
+	font-size: ${({ theme }) => theme.fonts.body.textSize.s};
+	cursor: pointer;
+`;

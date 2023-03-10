@@ -8,8 +8,11 @@ export const StyledFinder = styled.div`
 `;
 
 export const StyledSearchBarWrapper = styled.div`
-	display: flex;
+	display: grid;
 	justify-content: center;
+	position: sticky;
+	z-index: 1;
+	top: ${({ theme }) => theme.spaces.m};
 `;
 
 export const StyledContent = styled.main`
