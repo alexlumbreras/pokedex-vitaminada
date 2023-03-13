@@ -1,10 +1,11 @@
 import { useState } from "react";
-import {
-	StyledList,
-	StyledListItem,
-	StyledSearchBar,
-} from "./SearchBar.styled";
+import { SearchInput } from "./components/SearchInput";
+import { SuggestionsList } from "./components/SuggestionsList";
+import { StyledWrapper } from "./SearchBar.styled";
+import { searchBarUtils } from "./SearchBar.utils";
 import { useFetchPokemonList } from "./useFetchPokemonList";
+
+export const MINIMUM_SUGGESTION_LENGTH = 3;
 
 export const SearchBar = ({
 	onSearch,
@@ -15,25 +16,26 @@ export const SearchBar = ({
 	const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
 	const { pokemonList } = useFetchPokemonList();
 
-	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		const value = event.target.value;
-		setSearchInput(value);
-		updateSuggestions(value);
-	};
-
-	const updateSuggestions = (searcheValue: string) => {
-		if (!searcheValue || searcheValue.length < 3) {
+	const updateSuggestions = (searchValue: string) => {
+		if (searchBarUtils.isValidSearchTerm(searchValue)) {
 			setFilteredSuggestions([]);
 			return;
 		}
 
-		const regularExpression = new RegExp(`${searcheValue}`, "i");
-
-		const filteredList = pokemonList.filter((suggestion) =>
-			regularExpression.test(suggestion)
-		);
+		const filteredList = searchBarUtils.getFilteredList(searchValue, pokemonList);
 
 		setFilteredSuggestions(filteredList);
+	};
+
+	const handleEnter = () => {
+		onSearch(searchInput);
+		setSearchInput("");
+		setFilteredSuggestions([]);
+	};
+
+	const handleChange = (searchValue: string) => {
+		setSearchInput(searchValue);
+		updateSuggestions(searchValue);
 	};
 
 	const handleSuggestionClick = (suggestion: string) => {
@@ -42,40 +44,22 @@ export const SearchBar = ({
 		onSearch(suggestion);
 	};
 
-	const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-		if (event.key === "Enter") {
-			onSearch(searchInput);
-			setSearchInput("");
-			setFilteredSuggestions([]);
-		}
-	};
+	const hasSuggestions = !!filteredSuggestions.length;
 
 	return (
-		<>
-			<StyledSearchBar
-				type="text"
-				name="search-bar"
-				id="search-bar"
-				placeholder="Search a pokemon..."
-				value={searchInput}
+		<StyledWrapper>
+			<SearchInput
+				searchTerm={searchInput}
+				onEnter={handleEnter}
 				onChange={handleChange}
-				onKeyDown={handleKeyDown}
 			/>
-			{!!filteredSuggestions.length && (
-				<StyledList>
-					{filteredSuggestions.map((suggestion) => (
-						<StyledListItem
-							onClick={() => handleSuggestionClick(suggestion)}
-							dangerouslySetInnerHTML={{
-								__html: suggestion.replace(
-									searchInput.toLowerCase(),
-									`<strong>${searchInput.toLowerCase()}</strong>`
-								),
-							}}
-						/>
-					))}
-				</StyledList>
+			{hasSuggestions && (
+				<SuggestionsList
+					filteredSuggestions={filteredSuggestions}
+					searchTerm={searchInput}
+					onSuggestionClick={handleSuggestionClick}
+				/>
 			)}
-		</>
+		</StyledWrapper>
 	);
 };

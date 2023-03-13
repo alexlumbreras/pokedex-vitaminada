@@ -42,6 +42,10 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
 		margin: 0;
 	}
 
+	strong{
+		font-weight: 700;
+	}
+
 	input {
 		font-family: ${({ theme }) => theme.fonts.fontFamily};
 		outline: none;
