@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { SearchInput } from "./components/SearchInput";
-import { SuggestionsList } from "./components/SuggestionsList";
+import { SearchInput } from "@/components/molecules/SearchBar/components/SearchInput";
+import { SuggestionsList } from "@/components/molecules/SearchBar/components/SuggestionsList";
 import { StyledWrapper } from "./SearchBar.styled";
 import { searchBarUtils } from "./SearchBar.utils";
 import { useFetchPokemonList } from "./useFetchPokemonList";
