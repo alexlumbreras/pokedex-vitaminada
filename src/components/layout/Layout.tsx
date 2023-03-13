@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import { Footer } from "../molecules/Footer";
-import { Header } from "../molecules/Header";
+import { Footer } from "@/components/molecules/Footer";
+import { Header } from "@/components/molecules/Header";
 import { StyledWrapper } from "./Layout.styled";
 
 export const Layout = () => {
