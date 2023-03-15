@@ -1,40 +1,49 @@
-const getCurrentPagination = (
-	numberofPages: number,
-	currentPage: number,
-	paginationLength: number
-) => {
-	const output: number[] = [];
+const NUMERIC_PAGINATION_BUTTONS = 3;
 
-	if (currentPage > 4 && numberofPages - currentPage >= 4) {
-		output.push(1);
+const getCurrentPagination = (numberofPages: number, currentPage: number) => {
+	const paginationArray: number[] = [];
+	const firstFourPages: boolean = currentPage <= 4;
+	const lastFourPages: boolean = numberofPages - currentPage < 4;
 
-		const array = Array.from(Array(paginationLength).keys());
-		array.map((index) => {
-			const newIndex = currentPage - 1 + index;
-			output.push(newIndex);
+	const addPagetoPaginationArray = (page: number) => {
+		paginationArray.push(page);
+	};
+
+	const createArray = (paginationButtonsLength: number) => {
+		return Array.from(Array(paginationButtonsLength).keys());
+	};
+
+	if (!firstFourPages && !lastFourPages) {
+		addPagetoPaginationArray(1);
+		const auxiliaryArray = createArray(NUMERIC_PAGINATION_BUTTONS);
+		auxiliaryArray.map((arrayElement) => {
+			addPagetoPaginationArray(currentPage + arrayElement - 1);
 		});
-		output.push(numberofPages);
-		return output;
+		addPagetoPaginationArray(numberofPages);
+
+		return paginationArray;
 	}
 
-	if (currentPage <= 4) {
-		const array = Array.from(Array(paginationLength + 1).keys());
-		array.map((index) => {
-			const newIndex = index + 1;
-			output.push(newIndex);
+	if (firstFourPages) {
+		const auxiliaryArray = createArray(NUMERIC_PAGINATION_BUTTONS + 1);
+		auxiliaryArray.map((arrayElement) => {
+			addPagetoPaginationArray(arrayElement + 1);
 		});
-		output.push(numberofPages);
-		return output;
+		addPagetoPaginationArray(numberofPages);
+
+		return paginationArray;
 	}
 
-	if (numberofPages - currentPage < 4) {
-		output.push(1);
-		const array = Array.from(Array(paginationLength + 1).keys());
-		array.map((index) => {
-			const newIndex = numberofPages - paginationLength + index;
-			output.push(newIndex);
+	if (lastFourPages) {
+		addPagetoPaginationArray(1);
+		const auxiliaryArray = createArray(NUMERIC_PAGINATION_BUTTONS + 1);
+		auxiliaryArray.map((arrayElement) => {
+			addPagetoPaginationArray(
+				numberofPages + arrayElement - NUMERIC_PAGINATION_BUTTONS
+			);
 		});
-		return output;
+
+		return paginationArray;
 	}
 };
 

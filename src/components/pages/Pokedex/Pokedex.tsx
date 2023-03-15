@@ -11,18 +11,12 @@ function Pokedex() {
 	const { pokemonList } = useFetchPokemonList();
 	const numberOfPokemons = pokemonList.length;
 	const numberOfPages = Math.ceil(numberOfPokemons / 6);
-	const paginationLength = 3;
 
-	const arrayPokemonIndex = pokedexUtils.getPokemonIndexArray(
-		pokemonList,
-		numberOfPokemons,
-		page
-	);
+	const arrayPokemonIndex = pokedexUtils.getPokemonIndexArray(pokemonList, page);
 
 	const paginationArray = paginationUtils.getCurrentPagination(
 		numberOfPages,
-		page,
-		paginationLength
+		page
 	);
 
 	const isFirstPage = page === 1;

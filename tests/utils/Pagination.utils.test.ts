@@ -3,8 +3,6 @@ import { paginationUtils } from "@/components/molecules/Pagination/Pagination.ut
 const POKEMON_LIST_API_LENGTH = 1281;
 const NUMBER_OF_PAGES = Math.ceil(POKEMON_LIST_API_LENGTH / 6);
 
-const pokemonsPerPage = 3;
-
 describe("getCurrentIndexPerPage utility", () => {
 	test.each`
 		page                   | expectedResult
@@ -22,11 +20,7 @@ describe("getCurrentIndexPerPage utility", () => {
 	`(
 		"Returns $expectedResult when page $page is selected",
 		({ page, expectedResult }) => {
-			const result = paginationUtils.getCurrentPagination(
-				NUMBER_OF_PAGES,
-				page,
-				pokemonsPerPage
-			);
+			const result = paginationUtils.getCurrentPagination(NUMBER_OF_PAGES, page);
 			expect(result).toEqual(expectedResult);
 		}
 	);

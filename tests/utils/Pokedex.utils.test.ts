@@ -18,11 +18,7 @@ describe("getPokemonIndexArray utility", () => {
 	`(
 		"Returns $expectedResult when page $page is selected",
 		({ page, expectedResult }) => {
-			const result = pokedexUtils.getPokemonIndexArray(
-				pokemonListPerPage,
-				pokemonListPerPage.length,
-				page
-			);
+			const result = pokedexUtils.getPokemonIndexArray(pokemonListPerPage, page);
 			expect(result).toEqual(expectedResult);
 		}
 	);
