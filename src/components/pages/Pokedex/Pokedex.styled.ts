@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const StyledPokedexWrapper = styled.div`
+	display: grid;
+
+	grid-template-rows: auto 1fr;
+	gap: ${({ theme }) => theme.spaces.s};
+`;
+
 export const StyledContent = styled.main`
 	width: 100%;
 	height: 100%;

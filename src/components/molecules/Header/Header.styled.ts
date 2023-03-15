@@ -28,7 +28,7 @@ export const StyledLink = styled(Link)`
 	color: ${({ theme }) => theme.themeColors.textColor};
 
 	:hover {
-		color: ${({ theme }) => theme.themeColors.secondaryColor};
+		color: #0a58ca;
 	}
 `;
 
