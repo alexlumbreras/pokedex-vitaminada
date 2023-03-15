@@ -19,27 +19,26 @@ function Pokedex() {
 		page
 	);
 
-	const handlePrevClick = () => {
-		page > 1 && setPage(page - 1);
-	};
-
-	const handleNextClick = () => {
-		page < numberOfPages && setPage(page + 1);
-	};
-
-	const handlePageClick = (page: number) => {
-		setPage(page);
-	};
-
-	const isLastPage = page === numberOfPages;
-
-	const isFirstPage = page === 1;
-
 	const paginationArray = paginationUtils.getCurrentPagination(
 		numberOfPages,
 		page,
 		paginationLength
 	);
+
+	const isFirstPage = page === 1;
+	const isLastPage = page === numberOfPages;
+
+	const handlePrevClick = () => {
+		!isFirstPage && setPage(page - 1);
+	};
+
+	const handleNextClick = () => {
+		!isLastPage && setPage(page + 1);
+	};
+
+	const handlePageClick = (page: number) => {
+		setPage(page);
+	};
 
 	return (
 		<StyledPokedexWrapper>
