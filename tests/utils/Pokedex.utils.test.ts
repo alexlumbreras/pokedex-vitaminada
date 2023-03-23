@@ -1,10 +1,5 @@
 import { pokedexUtils } from "@/components/pages/Pokedex/Pokedex.utils";
 
-const POKEMON_LIST_API_LENGTH = 100;
-const NUMBER_OF_PAGES = Math.ceil(POKEMON_LIST_API_LENGTH / 6);
-const pokemonIndexList = Array.from(Array(POKEMON_LIST_API_LENGTH).keys());
-const pokemonListPerPage = pokemonIndexList.map((index) => `${index + 1}`);
-
 const smallPokemonsList = [
 	"irrelevant-pokemon-1",
 	"irrelevant-pokemon-2",
@@ -43,11 +38,11 @@ describe("pokedexUtils", () => {
 			${largePokemonsList} | ${2} | ${["irrelevant-pokemon-7", "irrelevant-pokemon-8", "irrelevant-pokemon-9", "irrelevant-pokemon-10", "irrelevant-pokemon-11", "irrelevant-pokemon-12"]}
 			${largePokemonsList} | ${3} | ${["irrelevant-pokemon-13", "irrelevant-pokemon-14"]}
 			${tinyPokemonsList}  | ${1} | ${["irrelevant-pokemon-1", "irrelevant-pokemon-2"]}
-			${tinyPokemonsList}  | ${0} | ${undefined}
+			${tinyPokemonsList}  | ${0} | ${[]}
 		`(
 			"Returns $expectedResult when page $page is selected",
 			({ pokemonsList, page, expectedResult }) => {
-				const result = pokedexUtils.getPageIdentifiers(pokemonsList, page);
+				const result = pokedexUtils.getPokemonIdentifiersByPage(pokemonsList, page);
 				expect(result).toEqual(expectedResult);
 			}
 		);
