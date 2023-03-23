@@ -12,7 +12,7 @@ function Pokedex() {
 	const numberOfPokemons = pokemonList.length;
 	const numberOfPages = Math.ceil(numberOfPokemons / 6);
 
-	const arrayPokemonIndex = pokedexUtils.getPokemonIndexArray(pokemonList, page);
+	const arrayPokemonIndex = pokedexUtils.getPageIdentifiers(pokemonList, page);
 
 	const paginationArray = paginationUtils.getCurrentPagination(
 		numberOfPages,
@@ -43,7 +43,7 @@ function Pokedex() {
 					onPageClick={handlePageClick}
 					isLastPage={isLastPage}
 					isFirstPage={isFirstPage}
-					paginationIndex={paginationArray}
+					pages={paginationArray}
 					pagesLength={numberOfPages}
 					currentPage={page}
 				/>

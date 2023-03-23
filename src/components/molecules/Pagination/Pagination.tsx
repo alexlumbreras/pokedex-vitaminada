@@ -9,7 +9,7 @@ type Props = {
 	onPageClick: (index: number) => void;
 	isLastPage: boolean;
 	isFirstPage: boolean;
-	paginationIndex: number[];
+	pages: number[];
 	pagesLength: number;
 	currentPage: number;
 };
@@ -20,7 +20,7 @@ export const Pagination: React.FC<Props> = ({
 	onPageClick,
 	isLastPage,
 	isFirstPage,
-	paginationIndex,
+	pages,
 	pagesLength,
 	currentPage,
 }) => {
@@ -30,7 +30,7 @@ export const Pagination: React.FC<Props> = ({
 			<PageButtons
 				onPageClick={onPageClick}
 				currentPage={currentPage}
-				paginationIndex={paginationIndex}
+				pages={pages}
 				pagesLength={pagesLength}
 			/>
 			<NextButton onClick={onNextClick} disabled={isLastPage} />

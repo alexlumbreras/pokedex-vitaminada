@@ -1,27 +1,31 @@
 import { paginationUtils } from "@/components/molecules/Pagination/Pagination.utils";
 
-const POKEMON_LIST_API_LENGTH = 1281;
-const NUMBER_OF_PAGES = Math.ceil(POKEMON_LIST_API_LENGTH / 6);
+const LOW_NUMBER_OF_PAGES = 10;
+const HIGH_NUMBER_OF_PAGES = 64;
 
-describe("getCurrentIndexPerPage utility", () => {
-	test.each`
-		page                   | expectedResult
-		${1}                   | ${[1, 2, 3, 4, 214]}
-		${2}                   | ${[1, 2, 3, 4, 214]}
-		${3}                   | ${[1, 2, 3, 4, 214]}
-		${4}                   | ${[1, 2, 3, 4, 214]}
-		${5}                   | ${[1, 4, 5, 6, 214]}
-		${6}                   | ${[1, 5, 6, 7, 214]}
-		${NUMBER_OF_PAGES - 4} | ${[1, 209, 210, 211, 214]}
-		${NUMBER_OF_PAGES - 3} | ${[1, 211, 212, 213, 214]}
-		${NUMBER_OF_PAGES - 2} | ${[1, 211, 212, 213, 214]}
-		${NUMBER_OF_PAGES - 1} | ${[1, 211, 212, 213, 214]}
-		${NUMBER_OF_PAGES}     | ${[1, 211, 212, 213, 214]}
-	`(
-		"Returns $expectedResult when page $page is selected",
-		({ page, expectedResult }) => {
-			const result = paginationUtils.getCurrentPagination(NUMBER_OF_PAGES, page);
-			expect(result).toEqual(expectedResult);
-		}
-	);
+describe("Pagination utils", () => {
+	describe("getCurrentPagination", () => {
+		test.each`
+			numberOfPages           | page  | expectedResult
+			${LOW_NUMBER_OF_PAGES}  | ${1}  | ${[1, 2, 3, 4]}
+			${LOW_NUMBER_OF_PAGES}  | ${2}  | ${[1, 2, 3, 4]}
+			${LOW_NUMBER_OF_PAGES}  | ${3}  | ${[1, 2, 3, 4]}
+			${LOW_NUMBER_OF_PAGES}  | ${4}  | ${[1, 2, 3, 4]}
+			${LOW_NUMBER_OF_PAGES}  | ${5}  | ${[4, 5, 6]}
+			${LOW_NUMBER_OF_PAGES}  | ${6}  | ${[5, 6, 7]}
+			${LOW_NUMBER_OF_PAGES}  | ${7}  | ${[7, 8, 9, 10]}
+			${LOW_NUMBER_OF_PAGES}  | ${8}  | ${[7, 8, 9, 10]}
+			${LOW_NUMBER_OF_PAGES}  | ${9}  | ${[7, 8, 9, 10]}
+			${LOW_NUMBER_OF_PAGES}  | ${10} | ${[7, 8, 9, 10]}
+			${HIGH_NUMBER_OF_PAGES} | ${4}  | ${[1, 2, 3, 4]}
+			${HIGH_NUMBER_OF_PAGES} | ${19} | ${[18, 19, 20]}
+			${HIGH_NUMBER_OF_PAGES} | ${62} | ${[61, 62, 63, 64]}
+		`(
+			"Returns $expectedResult when page $page is selected",
+			({ numberOfPages, page, expectedResult }) => {
+				const result = paginationUtils.getCurrentPagination(numberOfPages, page);
+				expect(result).toEqual(expectedResult);
+			}
+		);
+	});
 });

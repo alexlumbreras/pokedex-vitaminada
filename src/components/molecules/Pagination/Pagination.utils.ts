@@ -1,50 +1,30 @@
-const NUMERIC_PAGINATION_BUTTONS = 3;
+import {
+	firstFourPages,
+	lastFourPages,
+	NUMERIC_PAGINATION_BUTTONS,
+} from "./Pagination.constants";
 
-const getCurrentPagination = (numberofPages: number, currentPage: number) => {
-	const paginationArray: number[] = [];
-	const firstFourPages: boolean = currentPage <= 4;
-	const lastFourPages: boolean = numberofPages - currentPage < 4;
+const getCurrentPagination = (totalPages: number, currentPage: number) => {
+	const isFirstPages = firstFourPages(currentPage);
+	const isLastPages = lastFourPages(currentPage, totalPages);
+	const pagesToShow =
+		NUMERIC_PAGINATION_BUTTONS + Number(isFirstPages) + Number(isLastPages);
 
-	const addPagetoPaginationArray = (page: number) => {
-		paginationArray.push(page);
-	};
+	const getPageNumbers = (startingPageNumber: number) =>
+		Array.from(
+			{ length: pagesToShow },
+			(_, pageNumber) => pageNumber + startingPageNumber
+		);
 
-	const createArray = (paginationButtonsLength: number) => {
-		return Array.from(Array(paginationButtonsLength).keys());
-	};
-
-	if (!firstFourPages && !lastFourPages) {
-		addPagetoPaginationArray(1);
-		const auxiliaryArray = createArray(NUMERIC_PAGINATION_BUTTONS);
-		auxiliaryArray.map((arrayElement) => {
-			addPagetoPaginationArray(currentPage + arrayElement - 1);
-		});
-		addPagetoPaginationArray(numberofPages);
-
-		return paginationArray;
+	if (isFirstPages) {
+		return getPageNumbers(1);
 	}
 
-	if (firstFourPages) {
-		const auxiliaryArray = createArray(NUMERIC_PAGINATION_BUTTONS + 1);
-		auxiliaryArray.map((arrayElement) => {
-			addPagetoPaginationArray(arrayElement + 1);
-		});
-		addPagetoPaginationArray(numberofPages);
-
-		return paginationArray;
+	if (isLastPages) {
+		return getPageNumbers(totalPages - pagesToShow + 1);
 	}
 
-	if (lastFourPages) {
-		addPagetoPaginationArray(1);
-		const auxiliaryArray = createArray(NUMERIC_PAGINATION_BUTTONS + 1);
-		auxiliaryArray.map((arrayElement) => {
-			addPagetoPaginationArray(
-				numberofPages + arrayElement - NUMERIC_PAGINATION_BUTTONS
-			);
-		});
-
-		return paginationArray;
-	}
+	return getPageNumbers(currentPage - 1);
 };
 
 export const paginationUtils = {

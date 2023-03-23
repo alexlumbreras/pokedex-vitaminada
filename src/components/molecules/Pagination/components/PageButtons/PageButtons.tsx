@@ -3,56 +3,37 @@ import { StyledButton } from "@/components/molecules/Pagination/Pagination.style
 type PageButtonProps = {
 	onPageClick: (index: number) => void;
 	currentPage: number;
-	paginationIndex: number[];
+	pages: number[];
 	pagesLength: number;
 };
 
 export const PageButtons: React.FC<PageButtonProps> = ({
 	onPageClick,
 	currentPage,
-	paginationIndex,
+	pages,
 	pagesLength,
 }) => {
-	const firstFourPages = currentPage <= 4;
-	const lastFourPages = pagesLength - currentPage < 4;
-	const buttonStatus = (page: number) =>
-		currentPage == page ? "active-button" : undefined;
+	const firstPages = currentPage <= 4;
+	const lastPages = pagesLength - currentPage < 4;
+
+	const isPageActive = (page: number) => currentPage === page;
 
 	return (
 		<>
-			{firstFourPages ? (
-				<StyledButton onClick={() => onPageClick(1)} className={buttonStatus(1)}>
-					{"1"}
-				</StyledButton>
-			) : (
+			{!firstPages && (
+				<StyledButton onClick={() => onPageClick(1)}>1...</StyledButton>
+			)}
+
+			{pages.map((page) => (
 				<StyledButton
-					onClick={() => onPageClick(1)}
-					className={buttonStatus(1)}
-					style={{ fontWeight: "bold" }}
-				>
-					{"1..."}
-				</StyledButton>
-			)}
-			{paginationIndex.map(
-				(page) =>
-					page !== 1 &&
-					page !== pagesLength && (
-						<StyledButton
-							onClick={() => onPageClick(page)}
-							className={buttonStatus(page)}
-						>{`${page}`}</StyledButton>
-					)
-			)}
-			{lastFourPages ? (
+					onClick={() => onPageClick(page)}
+					isActive={isPageActive(page)}
+				>{`${page}`}</StyledButton>
+			))}
+
+			{!lastPages && (
 				<StyledButton
 					onClick={() => onPageClick(pagesLength)}
-					className={buttonStatus(pagesLength)}
-				>{`${pagesLength}`}</StyledButton>
-			) : (
-				<StyledButton
-					onClick={() => onPageClick(pagesLength)}
-					className={buttonStatus(pagesLength)}
-					style={{ fontWeight: "bold" }}
 				>{`...${pagesLength}`}</StyledButton>
 			)}
 		</>

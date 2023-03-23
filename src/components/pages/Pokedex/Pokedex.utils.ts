@@ -1,20 +1,21 @@
-const getPokemonIndexArray = (pokemonList: string[], page: number) => {
-	const pokemonListLength = pokemonList.length;
-	const numberOfPokemonPerPage = 6;
-	const numberOfPages = pokemonListLength / numberOfPokemonPerPage;
+import { PAGE_LENGTH } from "./Pokedex.constants";
+
+const getPageIdentifiers = (
+	pokemonIdentifiersList: string[],
+	page: number
+): string[] => {
+	const pokemonListLength = pokemonIdentifiersList.length;
+	const numberOfPages = pokemonListLength / PAGE_LENGTH;
 
 	const pagesArray = Array.from(Array(Math.ceil(numberOfPages)).keys());
 
 	const pokemonArrayPerPage = pagesArray.map((page) =>
-		pokemonList.slice(
-			numberOfPokemonPerPage * page,
-			numberOfPokemonPerPage * (page + 1)
-		)
+		pokemonIdentifiersList.slice(PAGE_LENGTH * page, PAGE_LENGTH * (page + 1))
 	);
 
 	return pokemonArrayPerPage[page - 1];
 };
 
 export const pokedexUtils = {
-	getPokemonIndexArray,
+	getPageIdentifiers,
 };

@@ -5,16 +5,9 @@ export const StyledPagination = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	.active-button {
-		color: white;
-		background-color: #0a58ca;
-		font-weight: bold;
-		z-index: 3;
-		height: 45px;
-	}
 `;
-export const StyledButton = styled.button`
+
+export const StyledButton = styled.button<{ isActive?: boolean }>`
 	width: 60px;
 	height: 40px;
 	display: flex;
@@ -55,4 +48,12 @@ export const StyledButton = styled.button`
 		color: #0a58ca;
 		background-color: #e9ecef;
 	}
+
+	${({ isActive }) =>
+		isActive &&
+		`color: white;
+	background-color: #0a58ca;
+	font-weight: bold;
+	z-index: 3;
+	height: 45px;`}
 `;
