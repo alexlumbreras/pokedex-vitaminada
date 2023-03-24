@@ -1,8 +1,2 @@
-export const NUMERIC_PAGINATION_BUTTONS = 3;
-
-export const firstFourPages = (currentPage: number): boolean =>
-	currentPage <= 4;
-export const lastFourPages = (
-	currentPage: number,
-	totalPages: number
-): boolean => totalPages - currentPage < 4;
+export const MINIMUM_NUMERIC_PAGE_COUNT = 3;
+export const PAGES_TO_SHOW = 4;

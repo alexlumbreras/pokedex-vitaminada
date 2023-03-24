@@ -1,14 +1,21 @@
 import {
-	firstFourPages,
-	lastFourPages,
-	NUMERIC_PAGINATION_BUTTONS,
+	MINIMUM_NUMERIC_PAGE_COUNT,
+	PAGES_TO_SHOW,
 } from "./Pagination.constants";
 
+export const shouldShowFirstPages = (currentPage: number): boolean =>
+	currentPage <= PAGES_TO_SHOW;
+
+export const shouldShowLastPages = (
+	currentPage: number,
+	totalPages: number
+): boolean => totalPages - currentPage < PAGES_TO_SHOW;
+
 const getCurrentPagination = (totalPages: number, currentPage: number) => {
-	const isFirstPages = firstFourPages(currentPage);
-	const isLastPages = lastFourPages(currentPage, totalPages);
+	const isFirstPages = shouldShowFirstPages(currentPage);
+	const isLastPages = shouldShowLastPages(currentPage, totalPages);
 	const pagesToShow =
-		NUMERIC_PAGINATION_BUTTONS + Number(isFirstPages) + Number(isLastPages);
+		MINIMUM_NUMERIC_PAGE_COUNT + Number(isFirstPages) + Number(isLastPages);
 
 	const getPageNumbers = (startingPageNumber: number) =>
 		Array.from(
