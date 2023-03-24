@@ -4,6 +4,8 @@ export const colors = {
 	grayScaleC: "#666666",
 	grayScaleD: "#f7f7f7",
 	grayScaleE: "#212121",
+	grayScaleF: "#e9ecef",
+	blue: "#0a58ca",
 
 	normal: "#aaa67f",
 	ground: "#dec16b",
