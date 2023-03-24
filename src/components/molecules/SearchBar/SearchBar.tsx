@@ -12,7 +12,7 @@ export const SearchBar = ({
 }: {
 	onSearch: (searchValue: string) => void;
 }) => {
-	const [searchInput, setSearchInput] = useState("");
+	const [searchInput, setSearchInput] = useState<string>("");
 	const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
 	const { pokemonList } = useFetchPokemonList();
 
