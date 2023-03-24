@@ -11,7 +11,7 @@ export const NextButton: React.FC<NextButtonProps> = ({
 }) => {
 	return (
 		<StyledButton onClick={onClick} disabled={disabled}>
-			{">"}
+			&gt;
 		</StyledButton>
 	);
 };
