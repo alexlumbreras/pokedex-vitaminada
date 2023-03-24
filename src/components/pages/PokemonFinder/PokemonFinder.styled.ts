@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+const MAX_LAYOUT_WIDTH = "1200px";
+
 export const StyledFinder = styled.div`
 	display: grid;
 
@@ -20,7 +22,7 @@ export const StyledContent = styled.main`
 	height: 100%;
 
 	padding: 0 ${({ theme }) => theme.spaces.m};
-	max-width: 1200px;
+	max-width: ${MAX_LAYOUT_WIDTH};
 
 	margin: auto;
 
