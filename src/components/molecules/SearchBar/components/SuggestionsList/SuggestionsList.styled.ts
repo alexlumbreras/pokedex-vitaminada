@@ -1,33 +1,31 @@
 import styled from "styled-components";
 
-export const StyledList = styled.ul`
-	/* height: auto;
-	width: 300px;
-	background-color: white; */
+const SUGGESTION_LIST_MAX_HEIGHT = "400px";
 
+export const StyledList = styled.ul`
 	position: absolute;
 	top: calc(48px + 16px);
 	left: 0;
 
 	width: 100%;
-	max-height: 400px;
+	max-height: ${SUGGESTION_LIST_MAX_HEIGHT};
 
 	list-style: none;
 	margin: 0;
 	padding: 0;
 
-	border-radius: 24px;
+	border-radius: ${({ theme }) => theme.borderRadius.m};
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 
 	overflow: auto;
-	background-color: white;
+	background-color: ${({ theme }) => theme.themeColors.mainColor};
 `;
 
 export const StyledListItem = styled.li`
 	font-size: ${({ theme }) => theme.fonts.body.textSize.l};
 
-	height: 48px;
-	padding: 16px;
+	height: ${({ theme }) => theme.spaces.xxl};
+	padding: ${({ theme }) => theme.spaces.m};
 
 	display: flex;
 	align-items: center;
@@ -35,10 +33,10 @@ export const StyledListItem = styled.li`
 	cursor: pointer;
 
 	:hover {
-		background-color: #fafafa;
+		background-color: ${({ theme }) => theme.themeColors.mainColor};
 	}
 
 	:not(:last-child) {
-		border-bottom: 1px solid #eee;
+		border-bottom: 1px solid ${({ theme }) => theme.themeColors.secondaryColor};
 	}
 `;

@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
-export const StyledSearchBar = styled.input`
-	width: 500px;
-	height: 48px;
+const SEARCHBAR_WIDTH = "500px";
 
-	padding: 16px;
+export const StyledSearchBar = styled.input`
+	width: ${SEARCHBAR_WIDTH};
+	height: ${({ theme }) => theme.spaces.xxl};
+
+	padding: ${({ theme }) => theme.spaces.m};
 
 	border: none;
-	border-radius: 48px;
+	border-radius: ${({ theme }) => theme.borderRadius.xl};
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 	font-size: initial;
 

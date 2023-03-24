@@ -78,7 +78,10 @@ export interface Theme {
 	};
 
 	borderRadius: {
+		s: string;
 		m: string;
+		l: string;
+		xl: string;
 	};
 
 	themeColors: {

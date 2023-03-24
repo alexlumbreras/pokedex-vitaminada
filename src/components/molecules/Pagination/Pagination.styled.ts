@@ -27,13 +27,13 @@ export const StyledButton = styled.button<{ isActive?: boolean }>`
 		border-color 0.15s ease-in-out;
 
 	:first-child {
-		border-top-left-radius: ${({ theme }) => theme.borderRadius.m};
-		border-bottom-left-radius: ${({ theme }) => theme.borderRadius.m};
+		border-top-left-radius: ${({ theme }) => theme.borderRadius.s};
+		border-bottom-left-radius: ${({ theme }) => theme.borderRadius.s};
 	}
 
 	:last-child {
-		border-top-right-radius: ${({ theme }) => theme.borderRadius.m};
-		border-bottom-right-radius: ${({ theme }) => theme.borderRadius.m};
+		border-top-right-radius: ${({ theme }) => theme.borderRadius.s};
+		border-bottom-right-radius: ${({ theme }) => theme.borderRadius.s};
 	}
 
 	:not(:first-child) {
