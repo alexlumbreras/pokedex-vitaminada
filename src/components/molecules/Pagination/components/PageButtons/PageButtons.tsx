@@ -28,13 +28,15 @@ export const PageButtons: React.FC<PageButtonProps> = ({
 				<StyledButton
 					onClick={() => onPageClick(page)}
 					isActive={isPageActive(page)}
-				>{`${page}`}</StyledButton>
+				>
+					{page}
+				</StyledButton>
 			))}
 
 			{!lastPages && (
-				<StyledButton
-					onClick={() => onPageClick(pagesLength)}
-				>{`...${pagesLength}`}</StyledButton>
+				<StyledButton onClick={() => onPageClick(pagesLength)}>
+					...{pagesLength}
+				</StyledButton>
 			)}
 		</>
 	);
