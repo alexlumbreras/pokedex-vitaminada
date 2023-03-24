@@ -5,6 +5,8 @@ export interface Theme {
 		grayScaleC: string;
 		grayScaleD: string;
 		grayScaleE: string;
+		grayScaleF: string;
+		blue: string;
 
 		normal: string;
 		ground: string;
@@ -75,9 +77,15 @@ export interface Theme {
 		xxl: string;
 	};
 
+	borderRadius: {
+		m: string;
+	};
+
 	themeColors: {
 		mainColor: string;
 		secondaryColor: string;
 		textColor: string;
+		hoverColor: string;
+		disabledColor: string;
 	};
 }

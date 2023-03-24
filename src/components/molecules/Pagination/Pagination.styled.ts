@@ -1,4 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const BUTTON_WIDTH = "60px";
+const BUTTON_HEIGHT = "40px";
+const ACTIVE_BUTTON_HEIGHT = "45px";
 
 export const StyledPagination = styled.div`
 	width: 100%;
@@ -8,30 +12,28 @@ export const StyledPagination = styled.div`
 `;
 
 export const StyledButton = styled.button<{ isActive?: boolean }>`
-	width: 60px;
-	height: 40px;
+	width: ${BUTTON_WIDTH};
+	height: ${BUTTON_HEIGHT};
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border: 1px solid #dee2e6;
-	background-color: #ffffff;
+	border: 1px solid ${({ theme }) => theme.themeColors.secondaryColor};
+	background-color: ${({ theme }) => theme.themeColors.mainColor};
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-	padding: 10px 15px;
-	color: #000000;
-	font-size: 16px;
-	text-decoration: none;
+	padding: ${({ theme }) => theme.spaces.xs} ${({ theme }) => theme.spaces.s};
+	color: ${({ theme }) => theme.themeColors.textColor};
+	font-size: ${({ theme }) => theme.fonts.body.textSize.m};
 	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
 		border-color 0.15s ease-in-out;
-	cursor: pointer;
 
 	:first-child {
-		border-top-left-radius: 15px;
-		border-bottom-left-radius: 15px;
+		border-top-left-radius: ${({ theme }) => theme.borderRadius.m};
+		border-bottom-left-radius: ${({ theme }) => theme.borderRadius.m};
 	}
 
 	:last-child {
-		border-top-right-radius: 15px;
-		border-bottom-right-radius: 15px;
+		border-top-right-radius: ${({ theme }) => theme.borderRadius.m};
+		border-bottom-right-radius: ${({ theme }) => theme.borderRadius.m};
 	}
 
 	:not(:first-child) {
@@ -39,21 +41,23 @@ export const StyledButton = styled.button<{ isActive?: boolean }>`
 	}
 
 	:disabled {
-		color: grey;
-		background-color: #e9ecef;
+		color: ${({ theme }) => theme.colors.grayScaleC};
+		background-color: ${({ theme }) => theme.themeColors.disabledColor};
 		pointer-events: none;
 	}
 
 	:hover {
-		color: #0a58ca;
-		background-color: #e9ecef;
+		color: ${({ theme }) => theme.themeColors.hoverColor};
+		background-color: ${({ theme }) => theme.themeColors.disabledColor};
 	}
 
 	${({ isActive }) =>
 		isActive &&
-		`color: white;
-	background-color: #0a58ca;
-	font-weight: bold;
-	z-index: 3;
-	height: 45px;`}
+		css`
+			color: ${({ theme }) => theme.themeColors.mainColor};
+			background-color: ${({ theme }) => theme.themeColors.hoverColor};
+			font-weight: ${({ theme }) => theme.fonts.fontWeight.bold};
+			z-index: 3;
+			height: ${ACTIVE_BUTTON_HEIGHT};
+		`}
 `;

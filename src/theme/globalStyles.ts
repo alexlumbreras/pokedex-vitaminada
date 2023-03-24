@@ -50,4 +50,9 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
 		font-family: ${({ theme }) => theme.fonts.fontFamily};
 		outline: none;
 	}
+
+	button{
+		text-decoration: none;
+		cursor:pointer
+	}
 `;
