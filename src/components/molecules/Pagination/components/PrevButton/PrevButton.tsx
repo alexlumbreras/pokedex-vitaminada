@@ -11,7 +11,7 @@ export const PrevButton: React.FC<PrevButtonProps> = ({
 }) => {
 	return (
 		<StyledButton onClick={onClick} disabled={disabled}>
-			{"<"}
+			&lt;
 		</StyledButton>
 	);
 };
