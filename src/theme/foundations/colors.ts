@@ -6,6 +6,8 @@ export const colors = {
 	grayScaleE: "#212121",
 	grayScaleF: "#e9ecef",
 	blue: "#0a58ca",
+	darkGreen: "#213e3b",
+	yellow: " #ffcb05",
 
 	normal: "#aaa67f",
 	ground: "#dec16b",
