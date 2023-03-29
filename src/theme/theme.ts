@@ -7,6 +7,9 @@ export interface Theme {
 		grayScaleE: string;
 		grayScaleF: string;
 		blue: string;
+		darkGreen: string;
+		yellow: string;
+		lightYellow: string;
 
 		normal: string;
 		ground: string;
@@ -41,6 +44,7 @@ export interface Theme {
 				s: string;
 				m: string;
 				l: string;
+				xl: string;
 			};
 
 			textHeight: {
@@ -90,5 +94,8 @@ export interface Theme {
 		textColor: string;
 		hoverColor: string;
 		disabledColor: string;
+		errorBackgroundColor: string;
+		errorTextColor: string;
+		errorHoverColor: string;
 	};
 }

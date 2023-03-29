@@ -15,5 +15,8 @@ export const lightTheme: Theme = {
 		textColor: colors.grayScaleE,
 		hoverColor: colors.blue,
 		disabledColor: colors.grayScaleF,
+		errorBackgroundColor: colors.darkGreen,
+		errorTextColor: colors.yellow,
+		errorHoverColor: colors.lightYellow,
 	},
 };

@@ -11,6 +11,7 @@ export const fonts = {
 			s: "1.8rem",
 			m: "2.4rem",
 			l: "3.2rem",
+			xl: "4rem",
 		},
 
 		textHeight: {
