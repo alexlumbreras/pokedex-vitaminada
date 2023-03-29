@@ -18,10 +18,6 @@ const router = createBrowserRouter([
 				element: <PokemonFinder />,
 			},
 			{
-				path: "/error",
-				element: <ErrorPage />,
-			},
-			{
 				path: "*",
 				element: <ErrorPage />,
 			},
