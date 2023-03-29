@@ -4,8 +4,10 @@ import {
 	StyledErrorDescription,
 	StyledErrorSubtitle,
 	StyledErrorTitle,
+	StyledHomeButton,
+	StyledLink,
 	StyledSvg,
-} from "./ErrorPage.styled";
+} from "./404Page.styled";
 
 export const ErrorPage = () => {
 	return (
@@ -17,6 +19,9 @@ export const ErrorPage = () => {
 			<StyledErrorDescription>
 				A wild Snorlax has blocked your path!
 			</StyledErrorDescription>
+			<StyledLink to={"/"}>
+				<StyledHomeButton>GO BACK!</StyledHomeButton>
+			</StyledLink>
 		</StyledContainer>
 	);
 };

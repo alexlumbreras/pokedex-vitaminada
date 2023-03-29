@@ -9,6 +9,7 @@ export interface Theme {
 		blue: string;
 		darkGreen: string;
 		yellow: string;
+		lightYellow: string;
 
 		normal: string;
 		ground: string;
@@ -95,5 +96,6 @@ export interface Theme {
 		disabledColor: string;
 		errorBackgroundColor: string;
 		errorTextColor: string;
+		errorHoverColor: string;
 	};
 }
