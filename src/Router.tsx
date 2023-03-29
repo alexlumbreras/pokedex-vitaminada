@@ -1,8 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
-import { ErrorPage } from "@/components/pages/ErrorPage";
+import { Error404Page } from "@/components/pages/404Page";
 import Pokedex from "@/components/pages/Pokedex/Pokedex";
 import { PokemonFinder } from "@/components/pages/PokemonFinder";
+import { ErrorPage } from "./components/pages/ErrorPage";
 
 const router = createBrowserRouter([
 	{
@@ -18,8 +19,12 @@ const router = createBrowserRouter([
 				element: <PokemonFinder />,
 			},
 			{
-				path: "*",
+				path: "/error",
 				element: <ErrorPage />,
+			},
+			{
+				path: "*",
+				element: <Error404Page />,
 			},
 		],
 	},

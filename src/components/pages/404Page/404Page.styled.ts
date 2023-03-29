@@ -14,7 +14,7 @@ export const StyledContainer = styled.div`
 	align-items: center;
 	justify-content: center;
 	gap: ${({ theme }) => theme.spaces.l};
-	background-color: ${({ theme }) => theme.themeColors.errorBackgroundColor};
+	background-color: ${({ theme }) => theme.themeColors.error404BackgroundColor};
 	margin: ${CONTAINER_MARGIN_VERTICAL} ${CONTAINER_MARGIN_HORIZONTAL};
 	border-radius: ${({ theme }) => theme.borderRadius.m};
 	box-shadow: ${CONTAINER_BOX_SHADOW};
@@ -26,7 +26,7 @@ export const StyledErrorTitle = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: ${({ theme }) => theme.themeColors.errorTextColor};
+	color: ${({ theme }) => theme.themeColors.error404TextColor};
 `;
 
 export const StyledSvg = styled.img`
@@ -36,21 +36,21 @@ export const StyledSvg = styled.img`
 
 export const StyledErrorSubtitle = styled.div`
 	font-size: ${({ theme }) => theme.fonts.heading.textSize.l};
-	color: ${({ theme }) => theme.themeColors.errorTextColor};
+	color: ${({ theme }) => theme.themeColors.error404TextColor};
 	text-align: center;
 	font-weight: ${({ theme }) => theme.fonts.fontWeight.bold};
 `;
 
 export const StyledErrorDescription = styled.div`
 	font-size: ${({ theme }) => theme.fonts.heading.textSize.s};
-	color: ${({ theme }) => theme.themeColors.errorTextColor};
+	color: ${({ theme }) => theme.themeColors.error404TextColor};
 	text-align: center;
 `;
 
 export const StyledHomeButton = styled.button`
 	display: inline-block;
 	padding: ${({ theme }) => theme.spaces.s} ${({ theme }) => theme.spaces.l};
-	background-color: ${({ theme }) => theme.themeColors.errorTextColor};
+	background-color: ${({ theme }) => theme.themeColors.error404TextColor};
 	border: ${BUTTON_BORDER};
 	border-radius: ${({ theme }) => theme.borderRadius.s};
 	font-size: ${({ theme }) => theme.fonts.body.textSize.m};
@@ -60,7 +60,7 @@ export const StyledHomeButton = styled.button`
 	transition: background-color 0.3s ease;
 
 	:hover {
-		background-color: ${({ theme }) => theme.themeColors.errorHoverColor};
+		background-color: ${({ theme }) => theme.themeColors.error404HoverColor};
 	}
 `;
 

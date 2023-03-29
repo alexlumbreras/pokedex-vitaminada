@@ -6,7 +6,9 @@ export interface Theme {
 		grayScaleD: string;
 		grayScaleE: string;
 		grayScaleF: string;
-		blue: string;
+		blueScaleA: string;
+		blueScaleB: string;
+		blueScaleC: string;
 		darkGreen: string;
 		yellow: string;
 		lightYellow: string;
@@ -94,8 +96,10 @@ export interface Theme {
 		textColor: string;
 		hoverColor: string;
 		disabledColor: string;
+		error404BackgroundColor: string;
+		error404TextColor: string;
+		error404HoverColor: string;
 		errorBackgroundColor: string;
 		errorTextColor: string;
-		errorHoverColor: string;
 	};
 }

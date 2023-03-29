@@ -9,7 +9,7 @@ import {
 	StyledSvg,
 } from "./404Page.styled";
 
-export const ErrorPage = () => {
+export const Error404Page = () => {
 	return (
 		<StyledContainer>
 			<StyledErrorTitle>
