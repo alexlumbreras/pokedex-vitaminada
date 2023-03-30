@@ -4,15 +4,21 @@ import { useEffect, useState } from "react";
 
 export const useFetchPokemonList = () => {
 	const [pokemonList, setPokemonList] = useState<PokemonList>([]);
+	const [hasError, setHasError] = useState<boolean>(false);
 
 	const getPokemons = async () => {
-		const pokemons = await pokemonService.getPokemonList();
-		setPokemonList(pokemons);
+		try {
+			const pokemons = await pokemonService.getPokemonList();
+			setPokemonList(pokemons);
+			throw new Error("Ha ocurrido un error");
+		} catch (error) {
+			setHasError(true);
+		}
 	};
 
 	useEffect(() => {
 		getPokemons();
 	}, []);
 
-	return { pokemonList };
+	return { pokemonList, hasError };
 };

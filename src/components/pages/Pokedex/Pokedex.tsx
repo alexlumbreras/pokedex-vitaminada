@@ -3,12 +3,13 @@ import { paginationUtils } from "@/components/molecules/Pagination/Pagination.ut
 import { useFetchPokemonList } from "@/components/molecules/SearchBar/useFetchPokemonList";
 import { PokeApiCard } from "@/components/organisms/PokeApiCard";
 import { useState } from "react";
+import { ErrorPage } from "../ErrorPage";
 import { StyledContent, StyledPokedexWrapper } from "./Pokedex.styled";
 import { pokedexUtils } from "./Pokedex.utils";
 
 function Pokedex() {
 	const [page, setPage] = useState<number>(1);
-	const { pokemonList } = useFetchPokemonList();
+	const { pokemonList, hasError } = useFetchPokemonList();
 	const numberOfPokemons = pokemonList.length;
 	const numberOfPages = Math.ceil(numberOfPokemons / 6);
 
@@ -36,6 +37,10 @@ function Pokedex() {
 	const handlePageClick = (page: number) => {
 		setPage(page);
 	};
+
+	if (hasError) {
+		return <ErrorPage />;
+	}
 
 	return (
 		<StyledPokedexWrapper>
