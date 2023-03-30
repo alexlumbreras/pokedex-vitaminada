@@ -4,6 +4,7 @@ import {
 	StyledErrorDescription,
 	StyledErrorSubtitle,
 	StyledErrorTitle,
+	StyledRetryButton,
 	StyledSvg,
 } from "./ErrorPage.styled";
 
@@ -17,6 +18,7 @@ export const ErrorPage = () => {
 			<StyledErrorDescription>
 				Data could not be loaded correctly!
 			</StyledErrorDescription>
+			<StyledRetryButton>RETRY!</StyledRetryButton>
 		</StyledContainer>
 	);
 };

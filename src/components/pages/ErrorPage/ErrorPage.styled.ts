@@ -5,6 +5,7 @@ const SVG_SIZE = "24rem";
 const CONTAINER_MARGIN_VERTICAL = "15rem";
 const CONTAINER_MARGIN_HORIZONTAL = "25rem";
 const CONTAINER_BOX_SHADOW = "0px 0px 2px rgba(0, 0, 0, 0.5)";
+const BUTTON_BORDER = "1px solid #ffffff";
 
 export const StyledContainer = styled.div`
 	display: flex;
@@ -43,4 +44,22 @@ export const StyledErrorDescription = styled.div`
 	font-size: ${({ theme }) => theme.fonts.heading.textSize.s};
 	color: ${({ theme }) => theme.themeColors.errorTextColor};
 	text-align: center;
+`;
+
+export const StyledRetryButton = styled.button`
+	display: inline-block;
+	padding: ${({ theme }) => theme.spaces.s} ${({ theme }) => theme.spaces.l};
+	background-color: ${({ theme }) => theme.themeColors.errorTextColor};
+	color: ${({ theme }) => theme.themeColors.mainColor};
+	border: ${BUTTON_BORDER};
+	border-radius: ${({ theme }) => theme.borderRadius.s};
+	font-size: ${({ theme }) => theme.fonts.body.textSize.m};
+	font-weight: ${({ theme }) => theme.fonts.fontWeight.bold};
+	text-align: center;
+	text-decoration: none;
+	transition: background-color 0.3s ease;
+
+	:hover {
+		background-color: ${({ theme }) => theme.themeColors.error404HoverColor};
+	}
 `;
